@@ -1,3 +1,4 @@
+//公共宏定义文件,可以根据需要扩展 / 调整 ALU 操作编码
 `ifndef RV32I_DEFS_VH
 `define RV32I_DEFS_VH
 

@@ -1,3 +1,4 @@
+//PC寄存器
 module rv32i_pc (
     input  wire        clk,
     input  wire        rst_n,      // active low reset

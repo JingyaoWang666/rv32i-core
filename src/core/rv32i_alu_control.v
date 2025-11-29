@@ -1,3 +1,5 @@
+//ALU控制：根据 alu_op_main（主控制器给的大类：算术/逻辑/分支等）以及 funct3/funct7，
+//生成真正的 alu_op（内部编码，见 rv32i_defs.vh）。
 `include "rv32i_defs.vh"
 
 module rv32i_alu_control (

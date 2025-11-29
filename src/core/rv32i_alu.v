@@ -1,3 +1,4 @@
+//ALU本体：需要支持你表中的所有算术/逻辑/移位/比较操作，并提供比较结果（给分支单元用）。
 `include "rv32i_defs.vh"
 
 module rv32i_alu (

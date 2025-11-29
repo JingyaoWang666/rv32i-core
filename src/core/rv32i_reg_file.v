@@ -1,3 +1,4 @@
+//寄存器堆
 module rv32i_reg_file (
     input  wire        clk,
     input  wire        rst_n,

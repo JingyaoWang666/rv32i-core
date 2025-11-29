@@ -1,3 +1,5 @@
+//CPU顶层
+//把所有模块连起来。外部可以只暴露时钟/复位和一些调试端口（比如当前 PC）。
 `include "rv32i_defs.vh"
 
 module rv32i_cpu (

@@ -1,3 +1,17 @@
+//分支跳转单元
+/*负责根据：
+branch / jump 控制信号
+funct3（区分 BEQ/BNE/BLT/BGE）
+rs1_data / rs2_data
+pc_current / imm
+jal / jalr 标志
+计算出：
+pc_next
+pc_src（是否采用跳转/分支目标）
+
+is_jalr 可以在 control 里根据 opcode 单独产生一个信号传进来，
+也可以让 branch_unit 自己看 opcode，这取决于你想不想把 opcode 也接进来。
+*/
 module rv32i_branch_unit (
     input  wire        branch,        // from main control
     input  wire        jump,          // from main control
