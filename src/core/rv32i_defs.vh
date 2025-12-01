@@ -1,6 +1,6 @@
 //公共宏定义文件,可以根据需要扩展 / 调整 ALU 操作编码
 `ifndef RV32I_DEFS_VH
-`define RV32I_DEFS_VH
+`define RV32I_DEFS_VH   //include guard
 
 // ---------------------
 // Opcode definitions
@@ -57,6 +57,12 @@
 `define ALU_OP_SRL   4'd6
 `define ALU_OP_SRA   4'd7
 `define ALU_OP_SLT   4'd8
+
+//instruction memory
+`define INSTR_MEM_DEPTH 1024
+`define INSTR_MEM_WIDTH 10  //2^10=1024
+
+
 // ... add more if needed
 
 `endif // RV32I_DEFS_VH
