@@ -26,6 +26,7 @@ module rv32i_control (
     output wire        reg_write,
     output wire        branch,      // for conditional branches
     output wire        jump,        // for JAL / JALR
+    output wire        is_jalr,
     output wire [1:0]  imm_type,    // e.g. 00:I, 01:S, 10:B, 11:U/J  (you can define)
     output wire [1:0]  alu_op_main  // high-level ALUOp to alu_control
 );
