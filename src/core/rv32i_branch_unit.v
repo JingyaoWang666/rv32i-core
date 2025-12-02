@@ -32,8 +32,9 @@ module rv32i_branch_unit (
     // pc logic: if condition==0, pc_next = pc_current + 4 (32'h4/32'o4/32'd4)
     
     reg condition;
+    wire [31:0] pc_target;
     
-    assign pc_taken = (branch&&condition) | jump; 
+    assign pc_taken = (branch && condition) || jump; 
     
     //For B-type instr, condition's bool value calculation
     always @(*) begin
@@ -51,15 +52,15 @@ module rv32i_branch_unit (
     end
 
     //pc_next calculation
+    // Step 1: Calculate the target address if a branch/jump were to be taken
+    assign pc_target = is_jalr ? ((rs1_data + imm) & ~32'b1) : (pc_current + imm);
+
+    // Step 2: Select pc_next based on whether the branch/jump is actually taken
     always @(*) begin
-        if (branch && condition)    // BEQ/BNE/BLT/BGE
-            pc_next = pc_current + imm;
-        else if (jump && (!is_jalr))    //JAL
-            pc_next = pc_current + imm;
-        else if (jump && is_jalr)   //JALR
-            pc_next = (rs1_data+imm) & ~32'b1;
+        if (pc_taken)
+            pc_next = pc_target; // JAL, JALR, or a taken Branch
         else
-            pc_next = pc_current + 32'd4;
+            pc_next = pc_current + 32'd4; // Not-taken branch or normal instruction
     end
 
 

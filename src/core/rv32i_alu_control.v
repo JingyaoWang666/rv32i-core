@@ -11,53 +11,20 @@ module rv32i_alu_control (
 );
     // TODO: implement ALU control logic
     // define local names for alu_op_main values to improve readability
-    localparam ALU_OP_MAIN_I    = 2'b00;
-    localparam ALU_OP_MAIN_BJ = 2'b11;
+    localparam ALU_OP_MAIN_I   = 2'b00;
     localparam ALU_OP_MAIN_RS  = 2'b01;
+    localparam ALU_OP_MAIN_B  = 2'b11;
+    localparam ALU_OP_MAIN_J  = 2'b10;
     
     always @(*) begin
         case (alu_op_main)
-            ALU_OP_MAIN_RS: begin
-                // R-type arithmetic & logic instructions  & S-type instructions
-                case (funct3)
-                    `FUNCT3_ADD_SUB: begin
-                        // ADD or SUB (SUB indicated by funct7 == FUNCT7_SUB_SRA)
-                        if (funct7 == `FUNCT7_SUB_SRA) begin
-                            alu_op = `ALU_OP_SUB;   // SUB
-                        end else begin
-                            alu_op = `ALU_OP_ADD;   // ADD
-                        end
-                    end
-                    `FUNCT3_SLL: begin
-                        alu_op = `ALU_OP_SLL;
-                    end
-                    `FUNCT3_SLT: begin
-                        alu_op = `ALU_OP_SLT;
-                    end
-                    `FUNCT3_XOR: begin
-                        alu_op = `ALU_OP_XOR;
-                    end
-                    `FUNCT3_SRL_SRA: begin
-                        // SRL or SRA (SRA distinguished by funct7)
-                        if (funct7 == `FUNCT7_SUB_SRA) begin
-                            alu_op = `ALU_OP_SRA;
-                        end else begin
-                            alu_op = `ALU_OP_SRL;
-                        end
-                    end
-                    `FUNCT3_OR: begin
-                        alu_op = `ALU_OP_OR;
-                    end
-                    `FUNCT3_AND: begin
-                        alu_op = `ALU_OP_AND;
-                    end
-                    default: begin
-                        alu_op = `ALU_OP_HLT;  // safe default
-                    end
-                endcase
+            ALU_OP_MAIN_I: 
+            begin
+                // Load / Store -> just addition (address calculation)
+                alu_op = `ALU_OP_ADD;
             end
 
-            ALU_OP_MAIN_I: begin     // I-type instructions (eg. ADDI, LW, SW) 
+            ALU_OP_MAIN_RS: begin     // R/I-type instructions (eg. ADD, AND, ADDI...) 
                 case (funct3)
                     `FUNCT3_ADD_SUB: begin
                         alu_op = (funct7 == `FUNCT7_SUB_SRA) ? `ALU_OP_SUB : `ALU_OP_ADD;
@@ -86,10 +53,14 @@ module rv32i_alu_control (
                 endcase
             end
 
-            ALU_OP_MAIN_BJ: begin
-                // Branch instructions B-type / J-type
-                ;  // No ALU operation needed for branches/jumps
+            ALU_OP_MAIN_B: begin
+                // Branch instructions B-type
+                alu_op = `ALU_OP_SUB;   // for comparisons in branches
             end
+
+            ALU_OP_MAIN_B: begin        // J-type
+                alu_op = `ALU_OP_ADD;   // for adds in jumps
+            end 
             
             default: begin
                 // defensive: map any other value to HLT
