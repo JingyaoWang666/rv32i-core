@@ -37,9 +37,9 @@ module rv32i_alu (
 
     assign eq = (op_a == op_b) ;
 
-    assign lt = ($signed(op_a) < $signed(op_b)) ? 1'b1 : 1'b0;
+    assign lt = $signed(op_a) < $signed(op_b);
 
-    assign ltu = (op_a < op_b) ? 1'b1 : 1'b0;
+    assign ltu = op_a < op_b;
     
 
 endmodule

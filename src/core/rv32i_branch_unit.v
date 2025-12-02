@@ -18,7 +18,7 @@ module rv32i_branch_unit (
     input  wire [31:0] pc_current,
     input  wire [31:0] rs1_data,
     input  wire [31:0] rs2_data,
-    input  wire [31:0] imm,           // sign-extended immediate
+    input  wire [31:0] imm,           // signed immediate
     input  wire        is_jalr,       // 1 if opcode is JALR
 
     output reg  [31:0] pc_next,
@@ -26,8 +26,10 @@ module rv32i_branch_unit (
 );
     // implement branch and jump target calculation
     // JAL:   pc_next = pc_current + imm
-    // JALR:  pc_next = (rs1_data + imm) & ~1
+    // JALR:  pc_next = (rs1_data + imm) & 32'b1……10
     // BEQ/BNE/BLT/BGE: pc_next = pc_current + imm (if condition true)
+
+    // pc logic: if condition==0, pc_next = pc_current + 4 (32'h4/32'o4/32'd4)
     
     reg condition;
     
@@ -37,10 +39,10 @@ module rv32i_branch_unit (
     always @(*) begin
         if (branch) begin
             case(funct3)
-                3'b000: condition = rs1_data==rs2_data; //BEQ
-                3'b001: condition = rs1_data!=rs2_data; //BNE
-                3'b100: condition = $signed(rs1_data) < $signed(rs2_data);    //BLT (signed comparison)
-                3'b101: condition = $signed(rs1_data) >= $signed(rs2_data);   //BGE (signed comparison)
+                `FUNCT3_BEQ: condition = rs1_data == rs2_data; //BEQ
+                `FUNCT3_BNE: condition = rs1_data != rs2_data; //BNE
+                `FUNCT3_BLT: condition = $signed(rs1_data) < $signed(rs2_data);    //BLT (signed comparison)
+                `FUNCT3_BGE: condition = $signed(rs1_data) >= $signed(rs2_data);   //BGE (signed comparison)
                 default: condition = 0; //undefined funct3 for branch (BLTU/BGEU) -> not taken
             endcase
         end
@@ -57,7 +59,7 @@ module rv32i_branch_unit (
         else if (jump && is_jalr)   //JALR
             pc_next = (rs1_data+imm) & ~32'b1;
         else
-            pc_next = pc_current + 32'h4;
+            pc_next = pc_current + 32'd4;
     end
 
 
