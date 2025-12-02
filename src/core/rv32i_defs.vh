@@ -57,6 +57,7 @@
 `define ALU_OP_SRL   4'd6
 `define ALU_OP_SRA   4'd7
 `define ALU_OP_SLT   4'd8
+`define ALU_OP_HLT   4'd9
 
 //instruction memory
 `define INSTR_MEM_DEPTH 1024
