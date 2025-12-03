@@ -13,7 +13,6 @@ module rv32i_alu (
     output wire        ltu         // (op_a < op_b) unsigned (if you want)
 );
     // TODO: implement ALU operations and flags
-
     always @(*) begin
         result = 32'b0;
         case(alu_op)
@@ -28,14 +27,13 @@ module rv32i_alu (
             `ALU_OP_SRA: result = $signed(op_a) >>> op_b[4:0];
             `ALU_OP_SLT: result = ($signed(op_a) < $signed(op_b)) ? 1'b1 : 1'b0;
             `ALU_OP_HLT: ;
-
             // 无需default,已经在开头初始化，通过case覆盖
         endcase
     end
 
     assign zero = (result == 32'b0);
 
-    assign eq = (op_a == op_b) ;
+    assign eq = (op_a == op_b);
     assign lt = $signed(op_a) < $signed(op_b);
     assign ltu = op_a < op_b;
     

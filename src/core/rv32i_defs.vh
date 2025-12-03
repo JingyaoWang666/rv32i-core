@@ -13,7 +13,7 @@
 `define OPCODE_LOAD     7'b0000011
 `define OPCODE_STORE    7'b0100011
 `define OPCODE_OP_IMM   7'b0010011
-`define OPCODE_OP_R       7'b0110011
+`define OPCODE_OP_R     7'b0110011
 
 // Funct3 for BRANCH
 `define FUNCT3_BEQ      3'b000
@@ -57,7 +57,7 @@
 `define ALU_OP_SRL   4'd6
 `define ALU_OP_SRA   4'd7
 `define ALU_OP_SLT   4'd8
-`define ALU_OP_HLT   4'd9
+`define ALU_OP_HLT   4'd15
 
 //instruction memory
 `define INSTR_MEM_DEPTH 1024
