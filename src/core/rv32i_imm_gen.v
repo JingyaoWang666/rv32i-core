@@ -5,4 +5,25 @@ module rv32i_imm_gen (
     output reg  [31:0] imm_out
 );
     // TODO: implement immediate generation for I/S/B/U/J types
+    always @(*) begin
+        case (imm_type)
+            2'b00: begin // I-type (e.g., ADDI, etc.)
+                imm_out = {{20{instr[31]}}, instr[31:20]}; // sign-extend 12-bit immediate
+            end
+            2'b01: begin // S-type (e.g., SW)
+                imm_out = {{20{instr[31]}}, instr[31:25], instr[11:7]}; // sign-extend 12-bit immediate
+            end
+            2'b10: begin // B-type (e.g., BEQ, BNE, etc.)
+                imm_out = {{19{instr[31]}}, instr[31], instr[7], instr[30:25], instr[11:8], 1'b0}; // sign-extend 13-bit immediate
+            end
+            2'b11: begin // U-type (e.g., LUI)
+                imm_out = {instr[31:12], 12'b0}; // upper immediate with lower bits zeroed
+            end
+            default: begin
+                imm_out = 32'b0; // default case to avoid latches
+            end
+        endcase
+    end
+
+
 endmodule

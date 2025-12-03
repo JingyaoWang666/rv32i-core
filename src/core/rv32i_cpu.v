@@ -11,6 +11,12 @@ module rv32i_cpu (
 );
     // TODO:
     // 1. instantiate rv32i_pc
+    rv32i_pc pc_inst (
+        .clk(clk),
+        .rst_n(rst_n),
+        .pc(pc_current),
+        .pc_next(pc_next)
+    );
     // 2. instantiate rv32i_instr_mem
     // 3. decode instr fields: opcode, funct3, funct7, rs1, rs2, rd, imm...
     // 4. instantiate rv32i_control, rv32i_imm_gen, rv32i_reg_file

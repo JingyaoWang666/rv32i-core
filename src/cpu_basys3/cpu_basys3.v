@@ -26,7 +26,7 @@ assign gcd_b = {24'd0, sw_in[7:0]};   // 低8位→数B（0~255）
 key_debounce key_debounce(
     .clk    (clk),
     .rst_n  (rst_n),
-    .key_in (~BTNC),  // Basys3按键默认高电平，按下为低
+    .key_in (!BTNC),  // Basys3按键默认高电平，按下为低
     .key_out(calc_start)
 );
 
@@ -45,11 +45,11 @@ assign led_out = gcd_result[15:0];
 
 // 5. 数码管驱动模块（将32位结果转为8位十进制显示）
 seg_display seg_display(
-    .clk        (clk),
-    .rst_n      (rst_n),
-    .data_in    (gcd_result),  // GCD结果
-    .seg_en     (seg_en),      // 数码管位选
-    .seg_data   (seg_data)     // 数码管段选
+    .clk      (clk),
+    .rst_n    (rst_n),
+    .data_in  (gcd_result),  // GCD结果
+    .seg_en   (seg_en),      // 数码管位选
+    .seg_data (seg_data)     // 数码管段选
 );
 
 endmodule
