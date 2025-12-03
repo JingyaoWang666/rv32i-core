@@ -25,4 +25,11 @@ module rv32i_reg_file (
             reg_file[rd_addr] <= rd_data; // Write data to register if write enable is high and rd_addr is not x0
         end
     end
+
+    always @(*) begin
+        // Read data from registers
+        rs1_data = (rs1_addr == 5'b0) ? 32'b0 : reg_file[rs1_addr]; // x0 is always 0
+        rs2_data = (rs2_addr == 5'b0) ? 32'b0 : reg_file[rs2_addr]; // x0 is always 0
+    end
+
 endmodule
