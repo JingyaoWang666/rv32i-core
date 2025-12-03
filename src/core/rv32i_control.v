@@ -31,6 +31,9 @@ module rv32i_control (
     output wire [1:0]  alu_op_main  // high-level ALUOp to alu_control
 );
     // TODO: implement main control logic
+    // implement main control logic (Decode)
+    assign alu_op_main = opcode[6:5]; // example
+    assign alu_src = opcode[4]; 
     
 
 endmodule
