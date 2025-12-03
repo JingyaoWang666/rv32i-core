@@ -13,7 +13,7 @@
 `define OPCODE_LOAD     7'b0000011
 `define OPCODE_STORE    7'b0100011
 `define OPCODE_OP_IMM   7'b0010011
-`define OPCODE_OP       7'b0110011
+`define OPCODE_OP_R       7'b0110011
 
 // Funct3 for BRANCH
 `define FUNCT3_BEQ      3'b000

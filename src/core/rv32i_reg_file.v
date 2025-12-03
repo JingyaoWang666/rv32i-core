@@ -5,8 +5,8 @@ module rv32i_reg_file (
     // read ports
     input  wire [4:0]  rs1_addr,
     input  wire [4:0]  rs2_addr,
-    output wire [31:0] rs1_data,
-    output wire [31:0] rs2_data,
+    output reg [31:0] rs1_data,
+    output reg [31:0] rs2_data,
     // write port
     input  wire        rd_we,      // write enable
     input  wire [4:0]  rd_addr,

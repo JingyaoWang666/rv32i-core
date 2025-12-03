@@ -7,24 +7,24 @@ module rv32i_alu_control (
     input  wire [2:0]  funct3,        // instr[14:12]
     input  wire [6:0]  funct7,        // instr[31:25]
 
-    output reg  [3:0]  alu_op,         // to ALU (see rv32i_defs.vh)
+    output reg  [3:0]  alu_op         // to ALU (see rv32i_defs.vh)
 );
-    // TODO: implement ALU control logic
-    // define local names for alu_op_main values to improve readability
-    localparam ALU_OP_MAIN_I   = 2'b00;
-    localparam ALU_OP_MAIN_RS  = 2'b01;
-    localparam ALU_OP_MAIN_B  = 2'b11;
-    localparam ALU_OP_MAIN_J  = 2'b10;
+    // TODO: implement ALU controlling
+    // define local names for alu_op_main values      
+    localparam ALU_OP_MAIN_S  = 2'b00; 
+    localparam ALU_OP_MAIN_RI = 2'b01;
+    localparam ALU_OP_MAIN_B  = 2'b10;  // B:10
+    localparam ALU_OP_MAIN_J  = 2'b11;  // J:11
     
     always @(*) begin
         case (alu_op_main)
-            ALU_OP_MAIN_I: 
+            ALU_OP_MAIN_S: 
             begin
                 // Load / Store -> just addition (address calculation)
                 alu_op = `ALU_OP_ADD;
             end
 
-            ALU_OP_MAIN_RS: begin     // R/I-type instructions (eg. ADD, AND, ADDI...) 
+            ALU_OP_MAIN_RI: begin     // R/I-type instructions (eg. ADD, AND, ADDI...) 
                 case (funct3)
                     `FUNCT3_ADD_SUB: begin
                         alu_op = (funct7 == `FUNCT7_SUB_SRA) ? `ALU_OP_SUB : `ALU_OP_ADD;
@@ -58,7 +58,7 @@ module rv32i_alu_control (
                 alu_op = `ALU_OP_SUB;   // for comparisons in branches
             end
 
-            ALU_OP_MAIN_B: begin        // J-type
+            ALU_OP_MAIN_J: begin        // J-type
                 alu_op = `ALU_OP_ADD;   // for adds in jumps
             end 
             

@@ -36,14 +36,6 @@ module rv32i_control (
 
     // implement main control logic (Decode)
 
-localparam [6:0] JALR_INSTR = 7'b1100111;
-localparam [6:0] LOAD_INSTR = 7'b0000011;
-localparam [6:0] OP_IMM_INSTR = 7'b0010011;
-localparam [6:0] B_TYPE_INSTR = 7'b1100011;
-localparam [6:0] J_TYPE_INSTR = 7'b1101111;
-localparam [6:0] S_TYPE_INSTR = 7'b0100011;
-localparam [6:0] R_TYPE_INSTR = 7'b0110011;
-//localparam [6:0] U_TYPE_INSTR = 7'b0110111;   not support yet
 
 always @(*) begin
     alu_src = 0;
@@ -57,8 +49,8 @@ always @(*) begin
     imm_type = 0;
     alu_op_main = 0;
 
-    case(opcode)
-        R_TYPE_INSTR:begin
+    case(opcode)    // U-type instructions are not supported temporarily
+        `OPCODE_OP_R:begin
             alu_src = 0;
             mem_read = 0;
             mem_write = 0;
@@ -70,7 +62,7 @@ always @(*) begin
             imm_type = 2'b00;
             alu_op_main = 2'b01;
         end
-        S_TYPE_INSTR:begin
+        `OPCODE_STORE:begin
             alu_src = 1;
             mem_read = 0;
             mem_write = 1;
@@ -82,7 +74,7 @@ always @(*) begin
             imm_type = 2'b01;
             alu_op_main = 2'b01;
         end
-        OPP_IMM_INSTR:begin
+        `OPCODE_OP_IMM:begin
             alu_src = 1;
             mem_read = 0;
             mem_write = 0;
@@ -94,7 +86,7 @@ always @(*) begin
             imm_type = 2'b00;
             alu_op_main = 2'b00;
         end
-        LOAD_INSTR:begin
+        `OPCODE_LOAD:begin
             alu_src = 1;
             mem_read = 1;
             mem_write = 0;
@@ -106,7 +98,7 @@ always @(*) begin
             imm_type = 2'b00;
             alu_op_main = 2'b00;
         end
-        JALR_INSTR:begin
+        `OPCODE_JALR:begin
             alu_src = 0;
             mem_read = 0;
             mem_write = 0;
@@ -118,7 +110,7 @@ always @(*) begin
             imm_type = 2'b00;
             alu_op_main = 2'b00;
         end
-        B_TYPE_INSTR:begin
+        `OPCODE_BRANCH:begin
             alu_src = 1;
             mem_read = 0;
             mem_write = 0;
@@ -130,7 +122,7 @@ always @(*) begin
             imm_type = 2'b10;
             alu_op_main = 2'b11;
         end
-        J_TYPE_INSTR:begin  //JAL
+        `OPCODE_JAL:begin  //JAL
             alu_src = 0;
             mem_read = 0;
             mem_write = 0;
