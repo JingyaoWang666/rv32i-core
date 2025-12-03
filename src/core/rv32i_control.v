@@ -4,7 +4,7 @@
 
 /*输出各种控制信号：
 
-alu_src：ALU 第二个操作数来自 rs2 还是 imm. 规定1表示来自rs2, 0表示来自imm。
+alu_src：ALU 第二个操作数来自 rs2 还是 imm. 规定1表示来自imm, 0表示来自rs2。
 mem_read / mem_write
 mem_to_reg：写回来源是否是内存
 reg_write：是否写寄存器
@@ -72,7 +72,7 @@ always @(*) begin
             jump = 0;
             is_jalr = 0;
             imm_type = 2'b01;
-            alu_op_main = 2'b01;
+            alu_op_main = 2'b00;
         end
         `OPCODE_OP_IMM:begin
             alu_src = 1;
@@ -84,7 +84,7 @@ always @(*) begin
             jump = 0;
             is_jalr = 0;
             imm_type = 2'b00;
-            alu_op_main = 2'b00;
+            alu_op_main = 2'b01;
         end
         `OPCODE_LOAD:begin
             alu_src = 1;
