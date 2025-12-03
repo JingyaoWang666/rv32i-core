@@ -33,6 +33,7 @@ module rv32i_control (
     output reg [1:0]  imm_type,    // e.g. 00:I, 01:S, 10:B, 11:J  (temporarily not support other types of instr)
     output reg [1:0]  alu_op_main  // high-level ALUOp to alu_control. See the rules in alu_control.v localparam.
 );
+
     // implement main control logic (Decode)
 
 localparam [6:0] JALR_INSTR = 7'b1100111;
