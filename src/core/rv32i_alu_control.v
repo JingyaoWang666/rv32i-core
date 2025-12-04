@@ -26,9 +26,9 @@ module rv32i_alu_control (
 
             ALU_OP_MAIN_RI: begin     // R/I-type instructions (eg. ADD, AND, ADDI...) 
                 case (funct3)
-                    `FUNCT3_ADD_SUB: begin
+                    `FUNCT3_ADD_SUB: begin  // FUNCT7_SUB_SRA = 7'b0100000
                         alu_op = (funct7 == `FUNCT7_SUB_SRA) ? `ALU_OP_SUB : `ALU_OP_ADD;
-                    end
+                    end                     // 对R-type,funct7有效;对I-type(ADDI/ANDI...),funct7不存在(0)
                     `FUNCT3_SLL: begin
                         alu_op = `ALU_OP_SLL;
                     end
@@ -38,7 +38,7 @@ module rv32i_alu_control (
                     `FUNCT3_XOR: begin
                         alu_op = `ALU_OP_XOR;
                     end
-                    `FUNCT3_SRL_SRA: begin
+                    `FUNCT3_SRL_SRA: begin  
                         alu_op = (funct7 == `FUNCT7_SUB_SRA) ? `ALU_OP_SRA : `ALU_OP_SRL;
                     end
                     `FUNCT3_OR: begin
@@ -48,7 +48,7 @@ module rv32i_alu_control (
                         alu_op = `ALU_OP_AND;
                     end
                     default: begin
-                        alu_op = `ALU_OP_HLT;  // safe default
+                        alu_op = `ALU_OP_ADD;  // safe default
                     end
                 endcase
             end
