@@ -1,71 +1,69 @@
 module seg_display(
-    input  wire        clk,
-    input  wire        rst_n,
-    input  wire [31:0] data_in,  // GCD结果（0~255）
-    output reg  [7:0]  seg_en,   // 位选（bit0=最右位）
-    output reg  [7:0]  seg_data  // 段选（a~g+dp，bit0=a，bit7=dp）
+    input  wire         clk,            // 100MHz系统时钟
+    input  wire         rst_n,          // 低有效复位
+    input  wire [15:0]  seg_data_16,    // 四位数码管数据（拼接为16位：[15:12]=seg3, [11:8]=seg2, [7:4]=seg1, [3:0]=seg0）
+    input  wire [31:0]  gcd_result,     // GCD计算结果（可选显示）
+    input  wire [1:0]   cpu_state,      // CPU状态（0=空闲，1=计算中，2=完成）
+    output reg [3:0]    seg_an,         // 数码管位选（共阴极，低有效）
+    output reg [7:0]    seg_seg         // 数码管段选（a~g+dp，低有效）
 );
 
-// 数码管段码表（共阴极，0~9）
-reg [7:0] seg_code[0:9];
-initial begin
-    seg_code[0] = 8'b00000011; // 0
-    seg_code[1] = 8'b10011111; // 1
-    seg_code[2] = 8'b00100101; // 2
-    seg_code[3] = 8'b00001101; // 3
-    seg_code[4] = 8'b10011001; // 4
-    seg_code[5] = 8'b01001001; // 5
-    seg_code[6] = 8'b01000001; // 6
-    seg_code[7] = 8'b00011111; // 7
-    seg_code[8] = 8'b00000001; // 8
-    seg_code[9] = 8'b00001001; // 9
-end
+// 将16位一维信号拆分回4个4位的二位信号
+wire [1:0] curr_seg[3:0];
+assign curr_seg[0] = seg_data_16[3:0];   // 第0位（最低位）
+assign curr_seg[1] = seg_data_16[7:4];   // 第1位
+assign curr_seg[2] = seg_data_16[11:8];  // 第2位
+assign curr_seg[3] = seg_data_16[15:12]; // 第3位（最高位）
 
-reg [3:0]  digit;       // 当前显示的数字
-reg [15:0] cnt;         // 扫描计数器（控制数码管刷新）
-reg [2:0]  seg_sel;     // 数码管位选择（0~7）
-wire [3:0] data_bcd[7:0];// BCD码分解结果
 
-// 1. 将32位结果转为8位BCD码（仅处理0~255，简化版）
-assign data_bcd[0] = data_in % 10;    // 个位
-assign data_bcd[1] = (data_in/10) % 10;// 十位
-assign data_bcd[2] = (data_in/100) % 10;// 百位
-assign data_bcd[3] = 4'd0;
-assign data_bcd[4] = 4'd0;
-assign data_bcd[5] = 4'd0;
-assign data_bcd[6] = 4'd0;
-assign data_bcd[7] = 4'd0;
-
-// 2. 数码管扫描（100MHz→1kHz刷新）
+// 1. 分频：100MHz→250Hz扫描频率（避免闪烁）
+reg [15:0] scan_cnt;
 always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
-        cnt <= 16'd0;
-        seg_sel <= 3'd0;
+        scan_cnt <= 16'd0;
     end else begin
-        if(cnt == 16'd99999) begin  // 1ms刷新一次
-            cnt <= 16'd0;
-            seg_sel <= seg_sel + 1'b1;
-        end else begin
-            cnt <= cnt + 1'b1;
-        end
+        scan_cnt <= scan_cnt + 1'b1;
     end
 end
 
-// 3. 位选和段选赋值
+wire [1:0] scan_an = scan_cnt[15:14];    // 当前扫描位（2位，0-3）
+reg [3:0] scan_seg;                      // 当前扫描位的数字（4位）
+
+// 2. 当前扫描位的数字选择(4位)
 always @(*) begin
-    seg_en = 8'b11111111;  // 初始全灭（共阴极，低电平点亮）
-    case(seg_sel)
-        3'd0: begin seg_en = 8'b11111110; digit = data_bcd[0]; end
-        3'd1: begin seg_en = 8'b11111101; digit = data_bcd[1]; end
-        3'd2: begin seg_en = 8'b11111011; digit = data_bcd[2]; end
-        3'd3: begin seg_en = 8'b11110111; digit = data_bcd[3]; end
-        3'd4: begin seg_en = 8'b11101111; digit = data_bcd[4]; end
-        3'd5: begin seg_en = 8'b11011111; digit = data_bcd[5]; end
-        3'd6: begin seg_en = 8'b10111111; digit = data_bcd[6]; end
-        3'd7: begin seg_en = 8'b01111111; digit = data_bcd[7]; end
-        default: begin seg_en = 8'b11111111; digit = 4'd0; end
+    if(cpu_state == 1'b1) begin 
+        scan_seg = gcd_result[4*scan_an +: 4]; // 计算完成：显示GCD结果
+    end else begin 
+        scan_seg = curr_seg[scan_an];          // 空闲/计算中：显示输入值
+    end
+end
+
+// 3. 数码管位选控制
+always @(*) begin
+    case(scan_an)
+        2'd0: seg_an = 4'b1110; // 第0位（最低位）
+        2'd1: seg_an = 4'b1101; // 第1位
+        2'd2: seg_an = 4'b1011; // 第2位
+        2'd3: seg_an = 4'b0111; // 第3位（最高位）
+        default: seg_an = 4'b1111;
     endcase
-    seg_data = seg_code[digit];
+end
+
+// 4. 数码管段选控制（0-9数字编码）
+always @(*) begin
+    case(scan_seg)
+        4'd0: seg_seg = 8'b11000000; // 0 (dp灭，a-g亮)
+        4'd1: seg_seg = 8'b11111001; // 1
+        4'd2: seg_seg = 8'b10100100; // 2
+        4'd3: seg_seg = 8'b10110000; // 3
+        4'd4: seg_seg = 8'b10011001; // 4
+        4'd5: seg_seg = 8'b10010010; // 5
+        4'd6: seg_seg = 8'b10000010; // 6
+        4'd7: seg_seg = 8'b11111000; // 7
+        4'd8: seg_seg = 8'b10000000; // 8
+        4'd9: seg_seg = 8'b10010000; // 9
+        default: seg_seg = 8'b11111111; // 熄灭
+    endcase
 end
 
 endmodule
