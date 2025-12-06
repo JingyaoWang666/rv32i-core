@@ -24,7 +24,7 @@ wire        btn_left;    // 左键消抖后信号
 wire        btn_right;   // 右键消抖后信号
 
 reg [1:0]   curr_an;        // 当前选中的数码管位（0-3）
-reg [1:0]   curr_seg [3:0]; // 四位数码管显示数据（0-9）
+reg [3:0]   curr_seg [3:0]; // 四位数码管显示数据（0-9）
 
 // 1. 按键消抖模块
 debounce center_debounce(

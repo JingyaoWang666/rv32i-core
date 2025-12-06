@@ -12,12 +12,10 @@ module rv32i_instr_mem (
 );
     
 reg [31:0] instr_mem [0:`INSTR_MEM_DEPTH-1];
- 
-// 关键：初始化inst_mem_f，加载汇编生成的机器码
+
+// 初始化inst_mem，加载汇编生成的机器码
 initial begin
-    // 方式1：加载verilog格式的.mem文件（推荐）
-    // $readmemh("inst_mem_init.mem", instr_mem);
-    // 方式2：若用hex文件，需指定起始地址（如0）
+    // 用hex文件，指定起始地址
     $readmemh("inst_mem_init.hex", instr_mem, 0, `INSTR_MEM_DEPTH-1);
 end
 

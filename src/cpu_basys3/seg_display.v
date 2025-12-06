@@ -3,33 +3,36 @@ module seg_display(
     input  wire         rst_n,          // 低有效复位
     input  wire [15:0]  seg_data_16,    // 四位数码管数据（拼接为16位：[15:12]=seg3, [11:8]=seg2, [7:4]=seg1, [3:0]=seg0）
     input  wire [31:0]  gcd_result,     // GCD计算结果（可选显示）
-    input  wire [1:0]   cpu_state,      // CPU状态（0=空闲，1=计算中，2=完成）
+    input  wire         cpu_state,      // CPU状态（0=空闲/计算中，1=完成）
     output reg [3:0]    seg_an,         // 数码管位选（共阴极，低有效）
     output reg [7:0]    seg_seg         // 数码管段选（a~g+dp，低有效）
 );
 
 // 将16位一维信号拆分回4个4位的二位信号
-wire [1:0] curr_seg[3:0];
+wire [3:0] curr_seg[3:0];
 assign curr_seg[0] = seg_data_16[3:0];   // 第0位（最低位）
 assign curr_seg[1] = seg_data_16[7:4];   // 第1位
 assign curr_seg[2] = seg_data_16[11:8];  // 第2位
 assign curr_seg[3] = seg_data_16[15:12]; // 第3位（最高位）
 
 
-// 1. 分频：100MHz→250Hz扫描频率（避免闪烁）
-reg [15:0] scan_cnt;
-always @(posedge clk or negedge rst_n) begin
-    if(!rst_n) begin
-        scan_cnt <= 16'd0;
+// 1. 分频：100MHz→500Hz扫描频率（避免闪烁）
+reg [17:0] div_cnt;       // 分频计数器
+reg scan_clk;             // 扫描时钟（分频后）
+always @(posedge clk) begin
+    if (div_cnt >= 18'd99999) begin  // 100MHz/(2*100000) = 500Hz
+        div_cnt <= 0;
+        scan_clk <= ~scan_clk;
     end else begin
-        scan_cnt <= scan_cnt + 1'b1;
+        div_cnt <= div_cnt + 1'b1;
     end
 end
-
-wire [1:0] scan_an = scan_cnt[15:14];    // 当前扫描位（2位，0-3）
-reg [3:0] scan_seg;                      // 当前扫描位的数字（4位）
+reg [1:0] scan_an = 2'b10;
+always @(posedge scan_clk)
+    scan_an <= {scan_an[0],scan_an[1]};    // 当前扫描位（2位，0-3）
 
 // 2. 当前扫描位的数字选择(4位)
+reg [3:0] scan_seg;                      // 当前扫描位的数字（4位）
 always @(*) begin
     if(cpu_state == 1'b1) begin 
         scan_seg = gcd_result[4*scan_an +: 4]; // 计算完成：显示GCD结果

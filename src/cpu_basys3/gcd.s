@@ -1,5 +1,9 @@
 # CPU 软件循环读取 x31，检测到 x31 的最低位为 1 时（外部硬件拨动开关使calc_start为 1 时），启动 GCD 计算
 
+    .text           # 代码段
+    .align 2        # 4字节对齐（RV32I要求）
+    .global _start  # 定义入口符号（链接时需要）
+
 # 循环检测启动信号（x31），直到触发
 wait_start:
     mv t0, x31       # 读x31（映射calc_start）
@@ -44,3 +48,12 @@ gcd_rem_end:
 gcd_end:
     ret                  # 伪指令→jalr x0, ra, 0（RV32I）
 
+
+# 1. 汇编：将gcd.s转为目标文件gcd.o
+#riscv-none-elf-as -march=rv32i -mabi=ilp32 .\gcd.s -o .\gcd.o
+
+# 2. 链接：转为ELF文件（指定起始地址0x0）
+#riscv-none-elf-ld -Ttext=0x0 .\gcd.o -o .\gcd.elf
+
+# 3. 导出Hex文件（Verilog可用）
+#riscv-none-elf-objcopy -O verilog -j .text .\gcd.elf .\inst_mem_init.hex
