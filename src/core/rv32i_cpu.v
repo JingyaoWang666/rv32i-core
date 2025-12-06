@@ -6,9 +6,9 @@ module rv32i_cpu (
 
     // GCD 相关 IO 信号
     input  wire             calc_start,  // 启动计算信号
-    input  wire [31:0]      gcd_a,       // 输入数A（位宽对齐CPU_WIDTH）
+    input  wire [31:0]      gcd_a,       // 输入数A（位宽对齐CPU_WIDTH�?
     input  wire [31:0]      gcd_b,       // 输入数B
-    output reg [31:0]       gcd_result   // 输出GCD结果（寄存器输出防毛刺）
+    output wire [31:0]       gcd_result   // 输出GCD结果（寄存器输出防毛刺）
 );
 
 wire        pc_taken;

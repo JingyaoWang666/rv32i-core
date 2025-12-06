@@ -1,4 +1,4 @@
-module rd_data_mux(
+module rv32i_rd_data_mux(
     input wire [31:0] alu_result,
     input wire [31:0] mem_read_data,
     input wire [31:0] pc_current,
