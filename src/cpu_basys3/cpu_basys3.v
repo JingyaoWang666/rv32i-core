@@ -1,5 +1,6 @@
 // top_module 包含basys3硬件逻辑
 module riscv_cpu_top(
+    input  wire         clk,           // Basys3 100MHz时钟（W5）
     input  wire         rst_n,         // 复位（BTNC，低有效）
     input  wire         btn_center_in, // 中键（启动CPU，接BTNC）
     input  wire         btn_up_in,     // 上键（加1，接BTNU）
