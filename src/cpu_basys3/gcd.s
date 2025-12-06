@@ -14,7 +14,9 @@ gcd_calc:
     mv x30, a0       # 计算结果写入x30（同步更新gcd_result输出）
     j wait_start     # 等待下一次启动
 
-/* GCD计算函数（欧几里得算法）
+/* 
+# GCD计算函数（欧几里得算法）
+# 需要RV32M的rem指令
 gcd_func:
     beq a1, zero, gcd_end
     rem a2, a0, a1
@@ -22,8 +24,8 @@ gcd_func:
     mv a1, a2
     j gcd_func
 gcd_end:
-    ret */
-
+    ret 
+*/
 
 # 纯RV32I实现的GCD函数（替换rem）
 # 输入：a0 = 被除数，a1 = 除数；输出：a0 = 余数

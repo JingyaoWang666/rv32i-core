@@ -10,9 +10,17 @@ module rv32i_instr_mem (
     input  wire [31:0] addr,        // byte address from PC
     output wire [31:0] instr
 );
-    reg [31:0] instr_mem [0:`INSTR_MEM_DEPTH-1];
-    assign instr = instr_mem[addr[`INSTR_MEM_WIDTH+2-1:2]];
+    
+reg [31:0] instr_mem [0:`INSTR_MEM_DEPTH-1];
+ 
+// 关键：初始化inst_mem_f，加载汇编生成的机器码
+initial begin
+    // 方式1：加载verilog格式的.mem文件（推荐）
+    // $readmemh("inst_mem_init.mem", instr_mem);
+    // 方式2：若用hex文件，需指定起始地址（如0）
+    $readmemh("inst_mem_init.hex", instr_mem, 0, `INSTR_MEM_DEPTH-1);
+end
 
-//往指令存储器中存数据的行为，我们考虑在testbench中完成。
+assign instr = instr_mem[addr[`INSTR_MEM_WIDTH+2-1:2]];
 
 endmodule

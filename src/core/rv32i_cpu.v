@@ -1,22 +1,167 @@
-//CPU顶层
-//把所有模块连起来。外部可以只暴露时钟/复位和一些调试端口（比如当前 PC）。
 `include "rv32i_defs.vh"
 
 module rv32i_cpu (
     input  wire        clk,
-    input  wire        rst_n
-    // 你也可以在这里加一些 debug 输出，比如：
-    // output wire [31:0] dbg_pc
-    // output wire [31:0] dbg_reg_x10
+    input  wire        rst_n,
+
+    // GCD 相关 IO 信号
+    input  wire             calc_start,  // 启动计算信号
+    input  wire [31:0]      gcd_a,       // 输入数A（位宽对齐CPU_WIDTH）
+    input  wire [31:0]      gcd_b,       // 输入数B
+    output reg [31:0]       gcd_result   // 输出GCD结果（寄存器输出防毛刺）
 );
-    // TODO:
-    // 1. instantiate rv32i_pc
-    // 2. instantiate rv32i_instr_mem
-    // 3. decode instr fields: opcode, funct3, funct7, rs1, rs2, rd, imm...
-    // 4. instantiate rv32i_control, rv32i_imm_gen, rv32i_reg_file
-    // 5. instantiate rv32i_alu_control, rv32i_alu
-    // 6. instantiate rv32i_data_mem, rv32i_branch_unit
-    // 7. mux for ALU src (rs2 or imm)
-    // 8. mux for writeback data (ALU result / mem_read_data / PC+4 / LUI/AUIPC)
-    // 9. connect pc_next from branch_unit or pc+4
+
+wire        pc_taken;
+wire [31:0] next_pc;
+wire [31:0] pc;
+wire [31:0] instr;
+
+wire [6:0]  opcode;
+wire [2:0]  funct3;
+wire [6:0]  funct7;
+wire [4:0]  rs1;
+wire [4:0]  rs2;
+wire [4:0]  rd;
+
+wire [1:0]  imm_type;
+wire [31:0] imm;
+
+wire        alu_src;  
+wire        mem_read;  
+wire        mem_write; 
+wire [1:0]  mem_to_reg;
+wire        reg_write; 
+wire        branch;    
+wire        jump;      
+wire        is_jalr;     
+wire [1:0]  alu_op_main;
+
+wire [31:0] rs1_data;
+wire [31:0] rs2_data;
+
+wire [31:0] alu_op;
+wire [31:0] op_b;
+wire [31:0] alu_result;
+wire        zero;
+wire        eq;
+wire        lt;
+wire        ltu;
+
+rv32i_pc_reg rv32i_pc_reg(
+    .clk(clk),
+    .rst_n(rst_n),
+    .next_pc(next_pc),
+    .pc(pc)
+);
+
+rv32i_instr_mem rv32i_instr_mem(
+    .addr(pc),
+    .instr(instr)
+);
+
+rv32i_instr_decoder rv32i_instr_decoder(
+    .instr(instr),
+    .opcode(opcode),
+    .funct3(funct3),
+    .funct7(funct7),
+    .rs1(rs1),
+    .rs2(rs2),
+    .rd(rd)
+);
+
+rv32i_imm_gen rv32i_imm_gen(
+    .instr(instr),
+    .imm_type(imm_type),
+    .imm_out(imm)
+);
+
+rv32i_control rv32i_control(
+    .opcode(opcode),
+    .alu_src(alu_src),
+    .mem_read(mem_read),
+    .mem_write(mem_write),
+    .mem_to_reg(mem_to_reg),
+    .reg_write(reg_write),
+    .branch(branch),
+    .jump(jump),
+    .is_jalr(is_jalr),
+    .imm_type(imm_type),
+    .alu_op_main(alu_op_main)
+);
+
+rv32i_alu_control rv32i_alu_control(
+    .alu_op_main(alu_op_main),
+    .funct3(funct3),
+    .funct7(funct7),
+    .alu_op(alu_op)
+);
+
+rv32i_alu_opb_mux rv32i_alu_opb_mux(
+    .alu_src(alu_src),
+    .rs2_data(rs2_data),
+    .imm(imm),
+    .op_b(op_b)
+);
+
+rv32i_reg_file rv32i_reg_file(
+    .clk(clk),
+    .rst_n(rst_n),
+    .rs1_addr(rs1),
+    .rs2_addr(rs2),
+    .rs1_data(rs1_data),
+    .rs2_data(rs2_data),
+    .rd_we(reg_write),
+    .rd_addr(rd),
+    .rd_data(alu_result),
+    
+    // gcd 相关信号
+    .calc_start            (calc_start),
+    .gcd_a                 (gcd_a),
+    .gcd_b                 (gcd_b),
+    .gcd_result            (gcd_result)
+);
+
+rv32i_alu rv32i_alu(
+    .op_a(rs1_data),
+    .op_b(op_b),
+    .alu_op(alu_op),
+    .result(alu_result),
+    .zero(zero),
+    .eq(eq),
+    .lt(lt),
+    .ltu(ltu)
+);
+
+rv32i_branch_unit rv32i_branch_unit(
+       .branch(branch),
+       .jump(jump),
+       .funct3(funct3),
+       .pc_current(pc),
+       .rs1_data(rs1_data),
+       .rs2_data(rs2_data),
+       .imm(imm),
+       .is_jalr(is_jalr),
+       .pc_next(next_pc),
+       .pc_taken(pc_taken)
+);
+
+rv32i_rd_data_mux rv32i_rd_data_mux(
+    .mem_to_reg(mem_to_reg),
+    .alu_result(alu_result),
+    .mem_read_data(32'b0), // Not connected since not used in this CPU
+    .pc_current(pc),
+    .rd_data() // Not connected since not used in this CPU
+);
+
+/*rv32i_data_mem rv32i_data_mem(
+    .clk(clk),
+    .rst_n(rst_n),
+    .mem_read(mem_read),
+    .mem_write(mem_write),
+    .funct3(funct3),
+    .addr(alu_result),
+    .write_data(rs2_data),
+    .read_data() // Not connected since not used in this CPU
+);*/
+
 endmodule
