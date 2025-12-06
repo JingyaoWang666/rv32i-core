@@ -43,4 +43,4 @@ gcd_rem_end:
     j gcd_func           # 继续欧几里得循环（RV32I）
 gcd_end:
     ret                  # 伪指令→jalr x0, ra, 0（RV32I）
-    
+
