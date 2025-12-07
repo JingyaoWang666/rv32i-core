@@ -63,9 +63,9 @@ always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
         curr_an <= 2'd0; // 默认选中最低位
     end else begin
-        if(btn_left) begin
+        if(btn_right) begin
             curr_an <= (curr_an == 2'd0) ? 2'd3 : curr_an - 1'b1; // 循环左移
-        end else if(btn_right) begin
+        end else if(btn_left) begin
             curr_an <= (curr_an == 2'd3) ? 2'd0 : curr_an + 1'b1; // 循环右移
         end
     end

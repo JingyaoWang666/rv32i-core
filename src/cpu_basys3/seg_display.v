@@ -27,9 +27,9 @@ always @(posedge clk) begin
         div_cnt <= div_cnt + 1'b1;
     end
 end
-reg [1:0] scan_an = 2'b10;
+reg [1:0] scan_an = 2'b00;
 always @(posedge scan_clk)
-    scan_an <= {scan_an[0],scan_an[1]};    // 当前扫描位（2位，0-3）
+    scan_an <= scan_an + 2'b1;    // 当前扫描位（2位，0-3）
 
 // 2. 当前扫描位的数字选择(4位)
 reg [3:0] scan_seg;                      // 当前扫描位的数字（4位）
