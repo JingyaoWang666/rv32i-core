@@ -1,4 +1,4 @@
-//ALU本体：需要支持你表中的所有算术/逻辑/移位/比较操作，并提供比较结果（给分支单元用）。
+//ALU module for RV32I processor
 `include "rv32i_defs.vh"
 
 module rv32i_alu (
@@ -27,7 +27,7 @@ module rv32i_alu (
             `ALU_OP_SRA: result = $signed(op_a) >>> op_b[4:0];
             `ALU_OP_SLT: result = ($signed(op_a) < $signed(op_b)) ? 1'b1 : 1'b0;
             `ALU_OP_HLT: ;
-            // 无需default,已经在开头初始化，通过case覆盖
+            // No need to default
         endcase
     end
 

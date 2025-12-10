@@ -21,7 +21,7 @@ module rv32i_imm_gen (
                 imm_out = {{20{instr[31]}}, instr[31:25], instr[11:7]}; // sign-extend 12-bit immediate
             end
             2'b10: begin // B-type (e.g., BEQ, BNE, etc.)
-                imm_out = {{19{instr[31]}}, instr[31], instr[7], instr[30:25], instr[11:8], 1'b0}; // sign-extend 13-bit immediate
+                imm_out = {{20{instr[31]}}, instr[7], instr[30:25], instr[11:8], 1'b0}; // sign-extend 13-bit immediate
             end
             2'b11: begin // J-type (e.g., JAL, JALR)
                 imm_out = {{12{instr[31]}},instr[19:12],instr[20],instr[30:21], 1'b0};

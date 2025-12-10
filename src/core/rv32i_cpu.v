@@ -5,10 +5,10 @@ module rv32i_cpu (
     input  wire        rst_n,
 
     // GCD 相关 IO 信号
-    input  wire             calc_start,  //启动计算信号
-    input  wire [31:0]      gcd_a,       // 输入数A（位宽对齐CPU_WIDTH）
-    input  wire [31:0]      gcd_b,       // 输入数B
-    output wire [31:0]       gcd_result   // 输出GCD结果（寄存器输出防毛刺）
+    input  wire             calc_start,  //activate GCD calculation
+    input  wire [31:0]      gcd_a,       // input A(width 32)
+    input  wire [31:0]      gcd_b,       // input B
+    output wire [31:0]      gcd_result   // output
 );
 
 wire        pc_taken;
@@ -39,13 +39,18 @@ wire [1:0]  alu_op_main;
 wire [31:0] rs1_data;
 wire [31:0] rs2_data;
 
-wire [31:0] alu_op;
+wire [3:0] alu_op;
 wire [31:0] op_b;
 wire [31:0] alu_result;
 wire        zero;
 wire        eq;
 wire        lt;
 wire        ltu;
+
+wire [31:0] mem_read_data;
+wire [31:0] rd_data;
+
+assign rd_data = alu_result;
 
 rv32i_pc_reg rv32i_pc_reg(
     .clk(clk),
@@ -112,7 +117,7 @@ rv32i_reg_file rv32i_reg_file(
     .rs2_data(rs2_data),
     .rd_we(reg_write),
     .rd_addr(rd),
-    .rd_data(alu_result),
+    .rd_data(rd_data),
     
     // gcd 相关信号
     .calc_start            (calc_start),
@@ -144,16 +149,18 @@ rv32i_branch_unit rv32i_branch_unit(
        .pc_next(next_pc),
        .pc_taken(pc_taken)
 );
-
+/*
 rv32i_rd_data_mux rv32i_rd_data_mux(
     .mem_to_reg(mem_to_reg),
     .alu_result(alu_result),
-    .mem_read_data(32'b0), // Not connected since not used in this CPU
+    .mem_read_data(mem_read_data),
     .pc_current(pc),
-    .rd_data() // Not connected since not used in this CPU
+    .rd_data(rd_data) 
 );
+*/
 
-/*rv32i_data_mem rv32i_data_mem(
+/*
+rv32i_data_mem rv32i_data_mem(
     .clk(clk),
     .rst_n(rst_n),
     .mem_read(mem_read),
@@ -161,7 +168,7 @@ rv32i_rd_data_mux rv32i_rd_data_mux(
     .funct3(funct3),
     .addr(alu_result),
     .write_data(rs2_data),
-    .read_data() // Not connected since not used in this CPU
+    .read_data(mem_read_data) 
 );*/
 
 endmodule

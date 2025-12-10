@@ -16,7 +16,7 @@ reg [31:0] instr_mem [0:`INSTR_MEM_DEPTH-1];
 // 初始化inst_mem，加载汇编生成的机器码
 initial begin
     // initialize the starting address
-    $readmemh("inst_mem_init.mem", instr_mem, 0, `INSTR_MEM_DEPTH-1);
+    $readmemb("inst_mem_init.mem", instr_mem, 0, `INSTR_MEM_DEPTH-1);
 end
 
 assign instr = instr_mem[addr[`INSTR_MEM_WIDTH+2-1:2]];
