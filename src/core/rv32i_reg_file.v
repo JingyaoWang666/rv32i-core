@@ -12,7 +12,7 @@ module rv32i_reg_file (
     input  wire [4:0]  rd_addr,
     input  wire [31:0] rd_data,
 
-    // GCD 鐩稿叧绔彛
+    // GCD 相关信号
     input                  calc_start,  // GCD 启动信号
     input      [31:0]      gcd_a,       // GCD 输入数a
     input      [31:0]      gcd_b,       // GCD 输入数b

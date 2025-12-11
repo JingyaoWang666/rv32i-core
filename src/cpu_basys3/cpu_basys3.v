@@ -92,8 +92,8 @@ always @(posedge clk or negedge rst_n) begin
 end
 
 // 4. 关联gcd_a/gcd_b低8位（高24位补0）与数码管数值
-assign gcd_a = {24'd0, curr_seg[3]*4'd10 + curr_seg[2]}; // 高两位→gcd_a（0-99）
-assign gcd_b = {24'd0, curr_seg[1]*4'd10 + curr_seg[0]}; // 低两位→gcd_b（0-99）
+assign gcd_a = {24'd0, curr_seg[3]*8'd10 + curr_seg[2]}; // 高两位→gcd_a（0-99）
+assign gcd_b = {24'd0, curr_seg[1]*8'd10 + curr_seg[0]}; // 低两位→gcd_b（0-99）
 
 // 5. 例化RISC-V CPU
 rv32i_cpu rv32i_cpu(
