@@ -45,20 +45,20 @@ module tb_riscv_cpu_top();
 
         // 生成5个连续脉冲
         repeat(5) begin          // 循环5次生成脉冲
-            #10 btn_up_in = 1'b1; // 高电平持续10ns
+            #100 btn_up_in = 1'b1; // 高电平持续10ns
             #100 btn_up_in = 1'b0; // 低电平持续10ns
         end
     
         // 生成3个连续脉冲
         repeat(3) begin          // 循环3次生成脉冲
-            #10 btn_left_in = 1'b1; // 高电平持续10ns
-            #10 btn_left_in = 1'b0; // 低电平持续10ns
+            #100 btn_left_in = 1'b1; // 高电平持续10ns
+            #100 btn_left_in = 1'b0; // 低电平持续10ns
         end
 
         // 生成1个连续脉冲
         repeat(1) begin        // 循环1次生成脉冲
-            #10 btn_up_in = 1'b1; // 高电平持续10ns
-            #10 btn_up_in = 1'b0; // 低电平持续10ns
+            #100 btn_up_in = 1'b1; // 高电平持续10ns
+            #100 btn_up_in = 1'b0; // 低电平持续10ns
         end
 
         // 启动cpu计算
