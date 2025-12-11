@@ -1,37 +1,37 @@
+//展宽后同步化sync和上升沿检测posedge_check模块
 module debounce(
-    input       clk, //
-    input       PB,  // glitchy, asynchronous to clk, active high push-button signal
-    
-    output reg  PB_state,
-    output      PB_down,
-    output      PB_up
+   input clk,
+   input PB,
+   output PB_down
 );
 
-// two flip-flops to synchronize the PB signal the "clk" clock domain
-reg PB_sync_0,PB_sync_1;
-
-always @(posedge clk) 
-    PB_sync_0 <= PB; 
-always @(posedge clk) 
-    PB_sync_1 <= PB_sync_0;
-
-reg [17:0] PB_cnt;
-
-// debouncer and posedge_check
-wire PB_stay = (PB_state == PB_sync_1);  
-
-always @(posedge clk) begin
-    if (PB_stay) begin
-        PB_cnt <= 0;
+// 对窄脉冲输入进行展宽（确保至少持续1个时钟周期）
+reg PB_extend;
+always @(posedge clk or posedge PB) begin
+    if (PB) begin
+        PB_extend <= 1'b1;  // 检测到投币信号立即置1
     end else begin
-        PB_cnt <= PB_cnt + 16'd1;
-        if (&PB_cnt) begin
-            PB_state <= ~PB_state;
-        end
+        PB_extend <= 1'b0;  // 时钟沿到来时复位（展宽至至少1个周期）
     end
 end
 
-assign PB_down = (&PB_cnt) & PB_sync_1;
-assign PB_up   = (&PB_cnt) & ~PB_sync_1;
+//投币信号coin_in的同步化处理（通过两级寄存器，实现异步输入同步化）
+reg PB_sync1, PB_sync2;
+//第一级同步：可能存在亚稳态
+always @(posedge clk) begin
+        PB_sync1 <= PB_extend;
+end
+//第二级同步：输出稳定的同步信号（与clk同步）
+always @(posedge clk) begin
+        PB_sync2 <= PB_sync1;
+end
+
+//对同步后的信号进行边沿检测（检测上升沿，应对投币信号持续多个时钟周期）
+reg PB_sync3;
+always @(posedge clk) begin
+        PB_sync3 <= PB_sync2;
+end
+// 上升沿检测：同步信号当前为1，前一拍为0
+assign PB_down = PB_sync2 & ~PB_sync3;
 
 endmodule
