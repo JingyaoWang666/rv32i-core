@@ -1,6 +1,6 @@
 module seg_display(
     input  wire         clk,            // 100MHz系统时钟
-    input  wire         rst_n,          // 低有效复位
+    
     input  wire [15:0]  seg_data_16,    // 四位数码管数据（拼接为16位：[15:12]=seg3, [11:8]=seg2, [7:4]=seg1, [3:0]=seg0）
     input  wire [31:0]  gcd_result,     // GCD计算结果（可选显示）
     input  wire         cpu_state,      // CPU状态（0=空闲/计算中，1=完成）

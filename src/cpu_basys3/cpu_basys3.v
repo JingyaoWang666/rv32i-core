@@ -35,12 +35,8 @@ clock_divider clock_divider(
 );
 
 // 1. 按键消抖模块
-debounce center_debounce(
-    .clk    (clk_1MHz),
-    
-    .PB     (btn_center_in), 
-    .PB_down(calc_start)
-);
+assign calc_start = btn_center_in; 
+
 debounce up_debounce(
     .clk    (clk),
     

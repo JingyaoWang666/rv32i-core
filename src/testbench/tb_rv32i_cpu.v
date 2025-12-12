@@ -46,8 +46,8 @@ module tb_rv32i_cpu();
         
         rst_n = 0;      
         calc_start = 0;
-        gcd_a = 32'd15; // a = 15
-        gcd_b = 32'd10; // b = 10
+        gcd_a = 32'd60; // a = 15
+        gcd_b = 32'd24; // b = 10
         #20;            
         calc_start = 1'b1; 
         rst_n = 1;      //reset released
@@ -70,7 +70,7 @@ module tb_rv32i_cpu();
                  uut.branch, // 直接访问 uut 内部 branch 信号
                  uut.jump,   // 直接访问 uut 内部 jump 信号
                  uut.rv32i_branch_unit.condition, // 访问 branch 单元内部condition
-                 uut.rv32i_branch_unit.pc_taken,  // 访问 branch 单元内部的跳转标志
+                 uut.rv32i_branch_unit.pc_taken,  // 访问 branch 单元内部的跳转标�?
                  
                  opcode,
                  reg_write,

@@ -20,7 +20,7 @@ module rv32i_reg_file (
 );
 
 // Note that gcd_a,b has multiple drivers in this version,No.46 commit 
-// 定义GCD专用寄存器
+// 定义GCD专用寄存�?
 // x28=GCD_A, x29=GCD_B, x10=GCD_RESULT, x31=GCD_START
 localparam REG_GCD_A      = 5'd28;
 localparam REG_GCD_B      = 5'd29;
@@ -37,13 +37,13 @@ localparam REG_GCD_START  = 5'd31;
             for (i = 0; i < 28; i = i + 1) begin
                 reg_file[i] <= 32'b0;
             end
-            reg_file[31] = {{31{1'b0}},calc_start};
-            reg_file[30] <=32'b0;
-            reg_file[29] = gcd_a;
-            reg_file[28] = gcd_b;
+            reg_file[31] <= {{31{1'b0}},calc_start};
+            reg_file[30] <= 32'b0;
+            reg_file[29] <= gcd_a;
+            reg_file[28] <= gcd_b;
             gcd_result <= 32'b0; // Reset GCD result register
         end else if (rd_we && (rd_addr != 5'b0)) begin
-            //写 GCD_RESULT 寄存器时，同步更新 gcd_result 输出
+            //�? GCD_RESULT 寄存器时，同步更�? gcd_result 输出
             if (rd_addr == REG_GCD_RESULT) begin
                 reg_file[rd_addr] <= rd_data; // Write data to register if write enable is high and rd_addr is not x0
                 gcd_result <= rd_data;
