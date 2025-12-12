@@ -26,9 +26,17 @@ wire        btn_right;   // 右键消抖后信号
 reg [1:0]   curr_an;        // 当前选中的数码管位（0-3）
 reg [3:0]   curr_seg [3:0]; // 四位数码管显示数据（0-9）
 
+wire clk_1MHz;
+
+clock_divider clock_divider(
+    .clk_in(clk),
+    .rst_n(rst_n),
+    .clk_out(clk_1MHz)
+);
+
 // 1. 按键消抖模块
 debounce center_debounce(
-    .clk    (clk),
+    .clk    (clk_1MHz),
     
     .PB     (btn_center_in), 
     .PB_down(calc_start)
@@ -97,7 +105,7 @@ assign gcd_b = {24'd0, curr_seg[1]*8'd10 + curr_seg[0]}; // 低两位→gcd_b（
 
 // 5. 例化RISC-V CPU
 rv32i_cpu rv32i_cpu(
-    .clk        (clk),
+    .clk        (clk_1MHz),
     .rst_n      (rst_n),
     .calc_start (calc_start),  // 启动计算信号
     .gcd_a      (gcd_a),       // 输入数A
