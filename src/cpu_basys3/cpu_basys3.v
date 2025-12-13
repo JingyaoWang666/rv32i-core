@@ -39,25 +39,25 @@ assign calc_start = btn_center_in;
 
 debounce up_debounce(
     .clk    (clk),
-    
+    //.rst_n  (rst_n),
     .PB     (btn_up_in), 
     .PB_down(btn_up)
 );
 debounce down_debounce(
     .clk    (clk),
-    
+    //.rst_n  (rst_n),
     .PB     (btn_down_in), 
     .PB_down(btn_down)
 );
 debounce left_debounce(
     .clk    (clk),
-    
+    //.rst_n  (rst_n),
     .PB     (btn_left_in), 
     .PB_down(btn_left)
 );
 debounce right_debounce(
     .clk    (clk),
-    
+    //.rst_n  (rst_n),
     .PB     (btn_right_in), 
     .PB_down(btn_right)
 );
