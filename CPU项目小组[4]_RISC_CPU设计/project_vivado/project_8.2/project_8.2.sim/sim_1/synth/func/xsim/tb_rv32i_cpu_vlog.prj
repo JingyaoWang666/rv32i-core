@@ -1,0 +1,7 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../../../rv32i-core/src/core" \
+"tb_rv32i_cpu_func_synth.v" \
+"../../../../../../rv32i-core/src/testbench/tb_rv32i_cpu.v" \
+
+# Do not sort compile order
+nosort

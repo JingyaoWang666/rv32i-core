@@ -1,0 +1,6 @@
+0.6
+2019.1
+May 24 2019
+15:06:07
+D:/vivado_projects/project_8.2/project_8.2.sim/sim_1/synth/func/xsim/tb_rv32i_cpu_func_synth.v,1765275382,verilog,,D:/vivado_projects/rv32i-core/src/testbench/tb_rv32i_cpu.v,,debounce;debounce_0;debounce_1;debounce_2;glbl;riscv_cpu_top;rv32i_alu;rv32i_branch_unit;rv32i_cpu;rv32i_pc_reg;rv32i_reg_file;seg_display,,,../../../../../../rv32i-core/src/core,,,,,
+D:/vivado_projects/rv32i-core/src/testbench/tb_rv32i_cpu.v,1765272547,verilog,,,,tb_rv32i_cpu,,,../../../../../../rv32i-core/src/core,,,,,

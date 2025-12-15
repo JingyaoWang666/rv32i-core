@@ -1,0 +1,15 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/vivado_projects/project_8.2/project_8.2.sim/sim_1/synth/func/xsim/tb_rv32i_cpu_func_synth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module debounce
+INFO: [VRFC 10-311] analyzing module debounce_0
+INFO: [VRFC 10-311] analyzing module debounce_1
+INFO: [VRFC 10-311] analyzing module debounce_2
+INFO: [VRFC 10-311] analyzing module riscv_cpu_top
+INFO: [VRFC 10-311] analyzing module rv32i_alu
+INFO: [VRFC 10-311] analyzing module rv32i_branch_unit
+INFO: [VRFC 10-311] analyzing module rv32i_cpu
+INFO: [VRFC 10-311] analyzing module rv32i_pc_reg
+INFO: [VRFC 10-311] analyzing module rv32i_reg_file
+INFO: [VRFC 10-311] analyzing module seg_display
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/vivado_projects/rv32i-core/src/testbench/tb_rv32i_cpu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_rv32i_cpu

@@ -1,0 +1,28 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../../rv32i-core/src/core" \
+"../../../../../rv32i-core/src/cpu_basys3/debounce.v" \
+"../../../../../rv32i-core/src/core/rv32i_alu.v" \
+"../../../../../rv32i-core/src/core/rv32i_alu_control.v" \
+"../../../../../rv32i-core/src/core/rv32i_alu_opb_mux.v" \
+"../../../../../rv32i-core/src/core/rv32i_branch_unit.v" \
+"../../../../../rv32i-core/src/core/rv32i_control.v" \
+"../../../../../rv32i-core/src/core/rv32i_cpu.v" \
+"../../../../../rv32i-core/src/core/rv32i_imm_gen.v" \
+"../../../../../rv32i-core/src/core/rv32i_instr_decoder.v" \
+"../../../../../rv32i-core/src/core/rv32i_instr_mem.v" \
+"../../../../../rv32i-core/src/core/rv32i_pc_reg.v" \
+"../../../../../rv32i-core/src/core/rv32i_rd_data_mux.v" \
+"../../../../../rv32i-core/src/core/rv32i_reg_file.v" \
+"../../../../../rv32i-core/src/cpu_basys3/seg_display.v" \
+"../../../../../rv32i-core/src/cpu_basys3/cpu_basys3.v" \
+"../../../../../rv32i-core/src/core/rv32i_data_mem.v" \
+"../../../../project_8.2.srcs/sources_1/new/clock_divider.v" \
+"../../../../../rv32i-core/src/testbench/tb_rv32i_cpu.v" \
+"../../../../../rv32i-core/src/testbench/tb_top.v" \
+"../../../../project_8.2.srcs/sim_1/new/tb_calc_start.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
