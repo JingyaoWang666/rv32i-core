@@ -4,12 +4,14 @@
 
 /*输出各种控制信号：
 
-alu_src：ALU 第二个操作数来自 rs2 还是 imm. 规定1表示来自imm, 0表示来自rs2。
-mem_read / mem_write
-mem_to_reg：写回来源是否是内存
-reg_write：是否写寄存器
-branch / jump
-alu_op_main：交给 rv32i_alu_control 进一步细化
+alu_src：选择ALU 的第二个操作数来自 rs2 还是 imm. 规定1表示来自imm, 0表示来自rs2。
+mem_read / mem_write：data_mem的读写使能信号。
+mem_to_reg：选择写回寄存器的数据来源。我们规定：00: data_mem, 01: ALU result, 10:PC+4
+reg_write：寄存器写使能
+branch / jump：分支/跳转信号，输出给branch_unit模块。
+is_jalr：区分JAL和JALR指令的信号
+imm_type：立即数类型信号，输出给imm_gen模块
+alu_op_main：alu操作类型信号，交给 rv32i_alu_control 进一步细化
 
 imm_type 编码我们定义为：
 2'b00：I-type
