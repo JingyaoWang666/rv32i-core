@@ -73,10 +73,10 @@ module tb_rv32i_cpu();
                  $time,
                  pc,
                  instr,
-                 uut.branch, // 直接访问 uut 内部 branch 信号
-                 uut.jump,   // 直接访问 uut 内部 jump 信号
-                 uut.rv32i_branch_unit.condition, // 访问 branch 单元内部condition
-                 uut.rv32i_branch_unit.pc_taken,  // 访问 branch 单元内部的跳转标�?
+                 uut.branch, // Directly access the internal branch signal of uut
+                 uut.jump,   // Directly access the internal jump signal of uut
+                 uut.rv32i_branch_unit.condition, // Access the internal condition of the branch unit
+                 uut.rv32i_branch_unit.pc_taken,  // Access the internal jump flag of the branch unit
                  
                  opcode,
                  reg_write,

@@ -55,10 +55,10 @@ module tb_riscv_cpu_top();
             #100 btn_left_in = 1'b0; // 低电平持续10ns
         end
 
-        // 生成1个连续脉冲
-        repeat(1) begin        // 循环1次生成脉冲
-            #100 btn_up_in = 1'b1; // 高电平持续10ns
-            #100 btn_up_in = 1'b0; // 低电平持续10ns
+        // Generate 1 consecutive pulse
+        repeat(1) begin        // Loop 1 time to generate a pulse
+            #100 btn_up_in = 1'b1; // High level for 10ns
+            #100 btn_up_in = 1'b0; // Low level for 10ns
         end
 
         // 启动cpu计算

@@ -1,14 +1,14 @@
 module clk_divider_100M_to_50kHz (
-    input  wire clk_100M,   // 输入100MHz时钟
-    input  wire rst_n,      // 低电平复位
-    output reg  scan_clk    // 输出50kHz时钟
+    input  wire clk_100M,   // input 100MHz clock
+    input  wire rst_n,      // low level reset
+    output reg  scan_clk    // output 50kHz clock
 );
 
-// 定义计数器，位宽计算：2^11 = 2048 > 2000，故需11位
-localparam CNT_MAX = 1999;  // 计数器最大值（0~1999共2000个周期）
+// define counter，width calculate：2^11 = 2048 > 2000，so 11 bits are enough
+localparam CNT_MAX = 1999;  // counter maxium
 reg [10:0] cnt;
 
-// 计数器模块
+// counter module 
 always @(posedge clk_100M or negedge rst_n) begin
     if (!rst_n) begin
         cnt <= 11'd0;
@@ -19,11 +19,11 @@ always @(posedge clk_100M or negedge rst_n) begin
     end
 end
 
-// 输出时钟翻转（占空比50%）
+// output clock inversion (50% duty cycle)
 always @(posedge clk_100M or negedge rst_n) begin
     if (!rst_n) begin
         scan_clk <= 1'b0;
-    end else if (cnt == CNT_MAX / 2) begin  // 计数到1000时翻转
+    end else if (cnt == CNT_MAX / 2) begin  // invert when 1000
         scan_clk <= ~scan_clk;
     end
 end
