@@ -3,6 +3,7 @@
 module tb_rv32i_cpu();
 
     reg clk;
+    wire clk_out;
     reg rst_n;
     reg calc_start;
     reg [31:0] gcd_a;
@@ -17,10 +18,15 @@ module tb_rv32i_cpu();
     wire [4:0]  rd_addr;
     wire [31:0] alu_result;
 
+    clock_divider uut2(
+        .clk_in(clk),
+        .rst_n(rst_n),
+        .clk_out(clk_out)
+    );
 
     // 2. instantiate the CPU
     rv32i_cpu uut (
-        .clk(clk),
+        .clk(clk_out),
         .rst_n(rst_n),
         .calc_start(calc_start),
         .gcd_a(gcd_a),
