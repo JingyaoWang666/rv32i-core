@@ -1,4 +1,4 @@
-//PC寄存器 (pc后边的那一级流水线)
+//PC register module
 module rv32i_pc_reg (
     input  wire        clk,
     input  wire        rst_n,      // asynchronous active low reset

@@ -4,7 +4,7 @@ module rv32i_cpu (
     input  wire        clk,
     input  wire        rst_n,
 
-    // GCD 相关 IO 信号
+    // GCD related IO signals
     input  wire             calc_start,  //activate GCD calculation
     input  wire [31:0]      gcd_a,       // input A(width 32)
     input  wire [31:0]      gcd_b,       // input B
@@ -119,7 +119,7 @@ rv32i_reg_file rv32i_reg_file(
     .rd_addr(rd),
     .rd_data(rd_data),
     
-    // gcd 相关信号
+    // gcd related ports
     .calc_start            (calc_start),
     .gcd_a                 (gcd_a),
     .gcd_b                 (gcd_b),

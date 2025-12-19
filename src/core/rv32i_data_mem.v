@@ -1,6 +1,6 @@
-//数据存储器
-//需要支持 LB/LH/LW/SB/SH/SW（包含字节/半字对齐、符号扩展）。
-/*module rv32i_data_mem (
+//Data memory module
+//Based on the control signals from the control module (mem_read, mem_write) and funct3 (to distinguish LB/LH/LW/SB/SH/SW), implement byte/halfword/word access with proper sign/zero extension.
+module rv32i_data_mem (
     input  wire        clk,
     input  wire        rst_n,
 
@@ -76,4 +76,4 @@
         end
     end
 
-endmodule*/
+endmodule
