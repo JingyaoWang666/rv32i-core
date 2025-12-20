@@ -1,21 +1,24 @@
-//主控制器（根据 Opcode）：rv32i_control.v
-//这里的control仅根据opcode输出大概的控制信号，具体根据funct3等细化操作码在alu_control、imm_gen等各模块自行完成
-//总的来说支持：I-type(including JALR/LOAD/OP_IMM)、B-type、J-type、S-type、R-type 的指令
+// Main controller (based on Opcode): rv32i_control.v
+// This control module only outputs general control signals based on the opcode.
+// Specific operations based on funct3, etc., are handled by modules like alu_control and imm_gen.
+// In general, it supports: I-type (including JALR/LOAD/OP_IMM), B-type, J-type, S-type, R-type instructions.
 
-/*输出各种控制信号：
+/* Outputs various control signals:
 
-alu_src：ALU 第二个操作数来自 rs2 还是 imm. 规定1表示来自imm, 0表示来自rs2。
-mem_read / mem_write
-mem_to_reg：写回来源是否是内存
-reg_write：是否写寄存器
-branch / jump
-alu_op_main：交给 rv32i_alu_control 进一步细化
+alu_src: Selects the second operand for the ALU, either from rs2 or imm. 1 for imm, 0 for rs2.
+mem_read / mem_write: Read/write enable signals for data_mem.
+mem_to_reg: Selects the data source for writing back to a register. We define: 00: data_mem, 01: ALU result, 10: PC+4.
+reg_write: Register write enable.
+branch / jump: Branch/jump signals, output to the branch_unit module.
+is_jalr: Signal to distinguish between JAL and JALR instructions.
+imm_type: Immediate type signal, output to the imm_gen module.
+alu_op_main: ALU operation type signal, passed to rv32i_alu_control for further refinement.
 
-imm_type 编码我们定义为：
-2'b00：I-type
-2'b01：S-type
-2'b10：B-type
-2'b11：J-type       Note that we temporarily don't support U-type instruction.
+We define the imm_type encoding as:
+2'b00: I-type
+2'b01: S-type
+2'b10: B-type
+2'b11: J-type       Note that we temporarily don't support U-type instruction.
 */
 `include "rv32i_defs.vh"
 

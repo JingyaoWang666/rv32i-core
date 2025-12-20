@@ -1,4 +1,4 @@
-//寄存器堆
+//register files
 module rv32i_reg_file (
     input  wire        clk,
     input  wire        rst_n,
@@ -13,15 +13,15 @@ module rv32i_reg_file (
     input  wire [31:0] rd_data,
 
     // GCD 
-    input                  calc_start,  // GCD 启动信号
-    input      [31:0]      gcd_a,       // GCD 输入数a
-    input      [31:0]      gcd_b,       // GCD 输入数b
-    output reg [31:0]      gcd_result   // GCD 计算结果
+    input                  calc_start,  // GCD initialize signal
+    input      [31:0]      gcd_a,       // GCD input a
+    input      [31:0]      gcd_b,       // GCD input b
+    output reg [31:0]      gcd_result   // GCD calculation result
 );
 
-// Note that gcd_a,b has multiple drivers in this version,No.46 commit 
-// 定义GCD专用寄存�?
+// Define dedicated GCD registers
 // x28=GCD_A, x29=GCD_B, x10=GCD_RESULT, x31=GCD_START
+
 localparam REG_GCD_A      = 5'd28;
 localparam REG_GCD_B      = 5'd29;
 localparam REG_GCD_RESULT = 5'd10;
@@ -43,7 +43,7 @@ localparam REG_GCD_START  = 5'd31;
             reg_file[28] <= gcd_b;
             gcd_result <= 32'b0; // Reset GCD result register
         end else if (rd_we && (rd_addr != 5'b0)) begin
-            //�? GCD_RESULT 寄存器时，同步更�? gcd_result 输出
+            // When writing to GCD_RESULT register, synchronize gcd_result output
             if (rd_addr == REG_GCD_RESULT) begin
                 reg_file[rd_addr] <= rd_data; // Write data to register if write enable is high and rd_addr is not x0
                 gcd_result <= rd_data;
@@ -94,9 +94,5 @@ always @(*) begin
         rs2_data = reg_file[rs2_addr];
     end
 end
-/*
-always @(*) begin  // directly connect GCD input signals to fixed registers
-    
-end
-*/
+
 endmodule

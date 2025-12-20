@@ -1,15 +1,15 @@
-//分支跳转单元  总的来说本模块支持了：JAL/JALR/BEQ/BNE/BLT/BGE 六条指令
-/*负责根据：
-branch / jump 控制信号
-funct3（区分 BEQ/BNE/BLT/BGE）
+// Branch and Jump Unit. Overall, this module supports six instructions: JAL/JALR/BEQ/BNE/BLT/BGE.
+/* Responsible for calculating:
+pc_next
+pc_taken (whether to take the jump/branch target)
+Based on:
+branch / jump control signals
+funct3 (to distinguish between BEQ/BNE/BLT/BGE)
 rs1_data / rs2_data
 pc_current / imm
-jal / jalr 标志 (is_jalr 在 control 里根据 opcode 单独产生的一个信号传进来)
-计算出：
-pc_next
-pc_taken（是否采用跳转/分支目标）
+jal / jalr flag (is_jalr is a signal generated separately in the control module based on the opcode and passed in)
 
-control模块负责对opcode进行解码，本branch模块负责：区分更细指令，判断条件是否成立（同时产生pc_taken），计算pc_next
+The control module is responsible for decoding the opcode. This branch module is responsible for: distinguishing more specific instructions, determining if the condition is met (and generating pc_taken), and calculating pc_next.
 */
 module rv32i_branch_unit (
     input  wire        branch,        // from main control

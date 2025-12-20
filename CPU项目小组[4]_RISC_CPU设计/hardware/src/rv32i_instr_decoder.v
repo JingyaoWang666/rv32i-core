@@ -1,4 +1,4 @@
-// 只负责“指令字段截取”的小模块，不做控制逻辑
+// decoder for RV32I instructions
 module rv32i_instr_decoder (
     input  wire [31:0] instr,
 

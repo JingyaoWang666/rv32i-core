@@ -1,5 +1,5 @@
-/*ALU控制：根据 alu_op_main（主控制器给的大类：算术/逻辑/分支等）以及 funct3/funct7，
-生成真正的 alu_op（内部编码，见 rv32i_defs.vh）*/
+/*ALU Control: Generates the actual alu_op (internal encoding, see rv32i_defs.vh)
+based on alu_op_main (major categories from main controller: arithmetic/logic/branch, etc.) and funct3/funct7.*/
 `include "rv32i_defs.vh"
 
 module rv32i_alu_control (
@@ -28,7 +28,7 @@ module rv32i_alu_control (
                 case (funct3)
                     `FUNCT3_ADD_SUB: begin  // FUNCT7_SUB_SRA = 7'b0100000
                         alu_op = (funct7 == `FUNCT7_SUB_SRA) ? `ALU_OP_SUB : `ALU_OP_ADD;
-                    end                     // 对R-type,funct7有效;对I-type(ADDI/ANDI...),funct7不存在(0)
+                    end                     // effective for R-type,funct7;for I-type(ADDI/ANDI...),funct7 can't be 0
                     `FUNCT3_SLL: begin
                         alu_op = `ALU_OP_SLL;
                     end
