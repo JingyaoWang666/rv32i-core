@@ -1,0 +1,618 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date         : Sun Dec 21 22:13:59 2025
+| Host         : LAPTOP-FFR0R2R2 running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file rv32i_cpu_control_sets_placed.rpt
+| Design       : rv32i_cpu
+| Device       : xc7a35t
+--------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |   540 |
+|    Minimum number of control sets                        |   540 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    40 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |   540 |
+| >= 0 to < 4        |     0 |
+| >= 4 to < 6        |     3 |
+| >= 6 to < 8        |    22 |
+| >= 8 to < 10       |   486 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |    29 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               0 |            0 |
+| No           | No                    | Yes                    |              76 |           37 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |            4964 |         1681 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------+--------------------------------------------+----------------------+------------------+----------------+
+|  Clock Signal  |                Enable Signal               |   Set/Reset Signal   | Slice Load Count | Bel Load Count |
++----------------+--------------------------------------------+----------------------+------------------+----------------+
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_2     | rv32i_data_mem/rst_n |                1 |              4 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[6][31]_i_2_3         | rv32i_data_mem/rst_n |                1 |              5 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[6][7]_i_2_3[0]       | rv32i_data_mem/rst_n |                1 |              5 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_78       | rv32i_data_mem/rst_n |                1 |              6 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_3     | rv32i_data_mem/rst_n |                1 |              6 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_0     | rv32i_data_mem/rst_n |                1 |              6 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_7     | rv32i_data_mem/rst_n |                2 |              6 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[7][7]_i_4_7          | rv32i_data_mem/rst_n |                4 |              7 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_142                 | rv32i_data_mem/rst_n |                3 |              7 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[32][7]_i_3_3         | rv32i_data_mem/rst_n |                2 |              7 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[32][7]_i_3_8         | rv32i_data_mem/rst_n |                3 |              7 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_16    | rv32i_data_mem/rst_n |                3 |              7 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_60                  | rv32i_data_mem/rst_n |                2 |              7 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[32][7]_i_3_6         | rv32i_data_mem/rst_n |                2 |              7 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_24    | rv32i_data_mem/rst_n |                1 |              7 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[82][7]_i_2_1         | rv32i_data_mem/rst_n |                2 |              7 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_83                  | rv32i_data_mem/rst_n |                1 |              7 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_134                 | rv32i_data_mem/rst_n |                1 |              7 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[105][7]_i_2_7        | rv32i_data_mem/rst_n |                2 |              7 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_74                  | rv32i_data_mem/rst_n |                3 |              7 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_72                  | rv32i_data_mem/rst_n |                1 |              7 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_68                  | rv32i_data_mem/rst_n |                2 |              7 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_7        | rv32i_data_mem/rst_n |                4 |              7 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_4     | rv32i_data_mem/rst_n |                1 |              7 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_27    | rv32i_data_mem/rst_n |                2 |              7 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[19][15]_i_3_3        | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[18][7]_i_2_2         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[19][30]_i_3_0        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[19][30]_i_3_3        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[105][7]_i_2_1        | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[19][30]_i_3_4        | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[105][7]_i_2_0        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[19][30]_i_3_2        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[19][31]_i_2_0        | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[19][23]_i_3_3        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[104][7]_i_2_4        | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[19][30]_i_3_1        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[105][7]_i_2_4        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[105][7]_i_2_5        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[19][15]_i_3_1        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[105][7]_i_2_2        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[21][23]_i_2_0        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[28][23]_i_2_2        | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[21][31]_i_2_7        | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[28][23]_i_2_1        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[28][23]_i_2_3        | rv32i_data_mem/rst_n |                5 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[19][31]_i_2_3        | rv32i_data_mem/rst_n |                5 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[19][31]_i_2_2        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[28][15]_i_2_2        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[28][31]_i_2_0        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[28][31]_i_2_3        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[21][31]_i_2_6        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[28][15]_i_2_0        | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[28][31]_i_2_2        | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[21][31]_i_2_3        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[28][15]_i_2_3        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[21][31]_i_2_1        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[2][7]_i_3_1          | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[28][23]_i_2_0        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[28][31]_i_2_1        | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[28][15]_i_2_1        | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[2][7]_i_3_10         | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[21][15]_i_2_0        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[21][31]_i_2_5        | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[21][31]_i_3_0        | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[2][7]_i_3_11         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[21][31]_i_3_1        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[2][7]_i_3_13         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[2][7]_i_3_14         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[2][7]_i_3_15         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[2][7]_i_3_2          | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[2][7]_i_3_3          | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[21][31]_i_2_0        | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[19][31]_i_2_1        | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[104][7]_i_2_1        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[104][7]_i_2_2        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[104][7]_i_2_3        | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file[10][7]_i_5_5[0]      | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_19[0] | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[6][23]_i_2_2         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_11[0] | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][6]_i_5_4[0]  | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_12[0] | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][6]_i_5_0[0]  | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file[10][4]_i_5_0[0]      | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_20[0] | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_28[0] | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[2][7]_i_3_9          | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[32][7]_i_3_7         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[2][7]_i_3_5          | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[2][7]_i_3_6          | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[47][7]_i_2_1         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[47][7]_i_2_2         | rv32i_data_mem/rst_n |                5 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[32][7]_i_3_5         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[2][7]_i_3_7          | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[36][31]_i_2_0        | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[32][7]_i_3_2         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][31]_i_2_2         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][23]_i_2_2         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][7]_i_4_1          | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][23]_i_2_3         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[53][7]_i_2_2         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][7]_i_4_2          | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[58][7]_i_2_2         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][15]_i_2_2         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][31]_i_2_3         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[62][7]_i_2_2         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][15]_i_2_1         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][23]_i_2_4         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[62][7]_i_2_3         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][31]_i_2_4         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][7]_i_6_1          | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][23]_i_2_0         | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[47][7]_i_2_3         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][7]_i_6_2          | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][7]_i_4_3          | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[62][7]_i_2_1         | rv32i_data_mem/rst_n |                6 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[53][7]_i_2_3         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[58][7]_i_2_3         | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][15]_i_2_4         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][7]_i_6_3          | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[53][7]_i_2_1         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][15]_i_2_3         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][23]_i_2_1         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[58][7]_i_2_0         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][31]_i_2_1         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][15]_i_2_0         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][31]_i_2_0         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[6][31]_i_2_1         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][7]_i_4_3         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][7]_i_4_2         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][7]_i_4_5         | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[68][7]_i_2_3         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][7]_i_4_6         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][23]_i_2_3        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][7]_i_4_7         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[6][23]_i_2_0         | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][23]_i_2_5        | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[75][7]_i_2_1         | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[6][31]_i_2_2         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[67][7]_i_2_1         | rv32i_data_mem/rst_n |                6 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][15]_i_2_5        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][31]_i_2_2        | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[6][15]_i_2_2         | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][23]_i_2_1        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][15]_i_2_4        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][23]_i_2_0        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][23]_i_2_4        | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][31]_i_2_1        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][15]_i_2_1        | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[68][7]_i_2_1         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][31]_i_2_3        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[67][7]_i_2_3         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][15]_i_2_0        | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][31]_i_2_0        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][31]_i_2_4        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[68][7]_i_2_0         | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[6][23]_i_2_1         | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[6][23]_i_2_3         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][31]_i_2_5        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[6][15]_i_2_1         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][15]_i_2_2        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[67][7]_i_2_0         | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][23]_i_2_2        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[6][15]_i_2_0         | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][15]_i_2_3        | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[6][31]_i_2_0         | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][7]_i_4_1         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[82][7]_i_2_2         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[75][7]_i_2_3         | rv32i_data_mem/rst_n |                5 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[75][7]_i_2_2         | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[89][7]_i_2_0         | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[89][7]_i_2_2         | rv32i_data_mem/rst_n |                5 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[78][7]_i_2_1         | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[7][7]_i_4_5          | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[7][7]_i_4_2          | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[82][7]_i_2_0         | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[7][7]_i_4_6          | rv32i_data_mem/rst_n |                5 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[89][7]_i_2_1         | rv32i_data_mem/rst_n |                5 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[90][7]_i_4_1         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[90][7]_i_4_3         | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[7][7]_i_4_3          | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[78][7]_i_2_2         | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[7][7]_i_4_4          | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[82][7]_i_2_3         | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[90][7]_i_4_2         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[96][7]_i_2_1         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_0     | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_10    | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_11    | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_13    | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_12    | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_17    | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_18    | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_1     | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_14    | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[96][7]_i_2_2         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[96][7]_i_2_3         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_19    | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_20    | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_5     | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_3     | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_25    | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_6     | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_9     | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_23    | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_7     | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_27    | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_26    | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_22    | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_1                   | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_100                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_113                 | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_119                 | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_145                 | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_146                 | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_102                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_118                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_132                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_131                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_144                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_150                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_165                 | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_140                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_141                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_130                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_138                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_167                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_112                 | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_136                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_3                   | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_149                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_120                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_166                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_168                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_133                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_108                 | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_116                 | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_5                   | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_56                  | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_57                  | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_58                  | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_114                 | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_103                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_121                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_139                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_2                   | rv32i_data_mem/rst_n |                5 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_143                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_101                 | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_59                  | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_107                 | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_110                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_122                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_106                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_111                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_117                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_109                 | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_135                 | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_115                 | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_169                 | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_170                 | rv32i_data_mem/rst_n |                5 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_105                 | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_96                  | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_98                  | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_95                  | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_90                  | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_91                  | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_79                  | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_69                  | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_71                  | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_81                  | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_99                  | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_88                  | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_82                  | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_92                  | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_77                  | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_80                  | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file[10][7]_i_5_4[0]      | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_86                  | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_70                  | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_87                  | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_94                  | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_62                  | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_65                  | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_66                  | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[104][7]_i_2_5        | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_64                  | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_67                  | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_78                  | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[18][7]_i_2_1         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_61                  | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_13       | rv32i_data_mem/rst_n |                7 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_25       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_27       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_32       | rv32i_data_mem/rst_n |                5 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_17       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_30       | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_24       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_35       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_26       | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_38       | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_40       | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_46       | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_22       | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_29       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_56       | rv32i_data_mem/rst_n |                5 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_41       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_47       | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_57       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_16       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_52       | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_58       | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_20       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_60       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_64       | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_28       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_36       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_23       | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[18][7]_i_2_3         | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_71       | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_73       | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_77       | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_61       | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_66       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[19][23]_i_3_0        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_18       | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_11       | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_37       | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_43       | rv32i_data_mem/rst_n |                5 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_33       | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_45       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_59       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_21       | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_53       | rv32i_data_mem/rst_n |                5 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_69       | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_42       | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_34       | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_51       | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_12       | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_72       | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_19       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_55       | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_15       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_14       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_54       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_68       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_31       | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_62       | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_74       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_39       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_67       | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_75       | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file[10][4]_i_5_2         | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file[10][4]_i_5_1         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file[10][7]_i_5_3         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file[10][4]_i_5_3         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file[10][7]_i_5_0         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file[10][7]_i_5_1         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file[10][7]_i_5_2         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file[10][7]_i_5_6         | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file[10][7]_i_5_7         | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][6]_i_5_3     | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][6]_i_5_5     | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_25    | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[19][23]_i_3_1        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_1     | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[105][7]_i_2_6        | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_14    | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[19][15]_i_3_2        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_23    | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_8     | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_9     | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_26    | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[19][15]_i_3_4        | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][6]_i_5_2     | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][6]_i_5_6     | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_21    | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_17    | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_5     | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][6]_i_5_7     | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_13    | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_16    | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_22    | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_29    | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][6]_i_5_1     | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_30    | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_18    | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_10    | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_31    | rv32i_data_mem/rst_n |                5 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[19][23]_i_3_2        | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_24    | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[19][23]_i_3_4        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_6     | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/reg_file_reg[10][3]_i_4_15    | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[68][7]_i_2_2[0]      | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[6][7]_i_2_1[0]       | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][7]_i_3_2[0]      | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[6][7]_i_2_0[0]       | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][7]_i_3_3[0]      | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[19][7]_i_5_0[0]      | rv32i_data_mem/rst_n |                5 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][7]_i_6_0[0]       | rv32i_data_mem/rst_n |                5 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][7]_i_2_3[0]       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[32][7]_i_3_4[1]      | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[32][7]_i_3_1[1]      | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[32][7]_i_3_4[0]      | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[6][7]_i_2_2[0]       | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[19][7]_i_5_4[0]      | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[18][7]_i_2_0[0]      | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[28][7]_i_2_3[0]      | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[32][7]_i_3_1[0]      | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[32][7]_i_3_1[2]      | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[2][7]_i_3_0[0]       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[2][7]_i_3_4[0]       | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[47][7]_i_2_0[0]      | rv32i_data_mem/rst_n |                5 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][7]_i_2_1[0]       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[21][31]_i_2_2[0]     | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[58][7]_i_2_1[0]      | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[28][7]_i_2_0[0]      | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[32][7]_i_3_1[3]      | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][7]_i_2_0[0]       | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][7]_i_2_4[0]       | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[28][7]_i_2_1[0]      | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[32][7]_i_3_4[3]      | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[53][7]_i_2_0[0]      | rv32i_data_mem/rst_n |                5 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][7]_i_4_0[0]       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[67][7]_i_2_2[0]      | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[62][7]_i_2_0[0]      | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[19][15]_i_3_0        | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][7]_i_3_0[0]      | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[32][7]_i_3_4[2]      | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][7]_i_3_1[0]      | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[19][7]_i_4_0[0]      | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[19][7]_i_5_3[0]      | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[19][7]_i_5_1[0]      | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[21][31]_i_2_4[0]     | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[28][7]_i_2_2[0]      | rv32i_data_mem/rst_n |                5 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[104][7]_i_2_0[0]     | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[105][7]_i_2_3[0]     | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[2][7]_i_3_12[0]      | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[2][7]_i_3_8[0]       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[19][7]_i_5_2[0]      | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[5][7]_i_2_2[0]       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_21[0] | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[90][7]_i_4_0[0]      | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_2[0]  | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_8[0]  | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_15[0] | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[7][7]_i_4_1[0]       | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[78][7]_i_2_0[0]      | rv32i_data_mem/rst_n |                6 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[7][7]_i_4_0[0]       | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[96][7]_i_2_0[0]      | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][7]_i_4_4[0]      | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][7]_i_4_0[0]      | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][7]_i_3_5[0]      | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[75][7]_i_2_0[0]      | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[89][7]_i_2_3[0]      | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem_reg[19][7]_i_7_4[0]  | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/data_mem[71][7]_i_3_4[0]      | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_126[0]              | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_147[0]              | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_148[0]              | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_157[0]              | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_156[3]              | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_157[2]              | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_157[3]              | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_156[0]              | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_125[0]              | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_104[0]              | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_123[0]              | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_127[0]              | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_129[0]              | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_124[0]              | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_137[0]              | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_156[2]              | rv32i_data_mem/rst_n |                5 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_157[1]              | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_128[0]              | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_156[1]              | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_4[0]                | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_164[0]              | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_171[0]              | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_97[0]               | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_85[0]               | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_75[0]               | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_84[1]               | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_76[0]               | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_63[0]               | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_0[0]     | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_1[0]     | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_55[0]               | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_84[2]               | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_10[0]    | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_84[3]               | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_89[0]               | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_84[0]               | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_73[0]               | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_93[0]               | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_6[0]     | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_63[0]    | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_76[0]    | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_44[0]    | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_9[0]     | rv32i_data_mem/rst_n |                1 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_2[0]     | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_48[0]    | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_5[0]     | rv32i_data_mem/rst_n |                5 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_70[0]    | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_3[0]     | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_65[0]    | rv32i_data_mem/rst_n |                3 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_50[0]    | rv32i_data_mem/rst_n |                4 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_4[0]     | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_49[0]    | rv32i_data_mem/rst_n |                5 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_target1_carry_i_9_8[0]     | rv32i_data_mem/rst_n |                2 |              8 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_11[0]               | rv32i_data_mem/rst_n |               16 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_151[0]              | rv32i_data_mem/rst_n |               13 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_12[0]               | rv32i_data_mem/rst_n |               14 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_10[0]               | rv32i_data_mem/rst_n |               13 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_8[0]                | rv32i_data_mem/rst_n |               15 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_9[0]                | rv32i_data_mem/rst_n |               13 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_7[0]                | rv32i_data_mem/rst_n |               13 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_14[0]               | rv32i_data_mem/rst_n |               16 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_25[0]               | rv32i_data_mem/rst_n |               14 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_22[0]               | rv32i_data_mem/rst_n |               15 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_155[0]              | rv32i_data_mem/rst_n |               13 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_36[0]               | rv32i_data_mem/rst_n |               11 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_18[0]               | rv32i_data_mem/rst_n |               14 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_23[0]               | rv32i_data_mem/rst_n |               15 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_34[0]               | rv32i_data_mem/rst_n |               19 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_152[0]              | rv32i_data_mem/rst_n |               14 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_20[0]               | rv32i_data_mem/rst_n |               14 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_21[0]               | rv32i_data_mem/rst_n |               15 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_35[0]               | rv32i_data_mem/rst_n |               18 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_24[0]               | rv32i_data_mem/rst_n |               14 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_17[0]               | rv32i_data_mem/rst_n |               17 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_19[0]               | rv32i_data_mem/rst_n |               15 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_153[0]              | rv32i_data_mem/rst_n |               14 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_15[0]               | rv32i_data_mem/rst_n |               14 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/E[0]                          | rv32i_data_mem/rst_n |               14 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_16[0]               | rv32i_data_mem/rst_n |               16 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_13[0]               | rv32i_data_mem/rst_n |               10 |             32 |
+|  clk_IBUF_BUFG | rv32i_pc_reg/pc_reg[2]_154[0]              | rv32i_data_mem/rst_n |               20 |             48 |
+|  clk_IBUF_BUFG |                                            | rv32i_data_mem/rst_n |               37 |             76 |
++----------------+--------------------------------------------+----------------------+------------------+----------------+
+
+

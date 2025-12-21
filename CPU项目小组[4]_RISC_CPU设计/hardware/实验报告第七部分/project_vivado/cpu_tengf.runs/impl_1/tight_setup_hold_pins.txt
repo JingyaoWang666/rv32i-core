@@ -1,0 +1,39 @@
++--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
+|       Launch Clock       |      Capture Clock       |                                                 Pin                                                      |
++--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
+|              sys_clk_pin |              sys_clk_pin |                                                                    rv32i_data_mem/data_mem_reg[113][16]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                     rv32i_data_mem/data_mem_reg[29][31]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                    rv32i_data_mem/data_mem_reg[113][31]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                      rv32i_data_mem/data_mem_reg[41][4]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                     rv32i_data_mem/data_mem_reg[82][31]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                    rv32i_data_mem/data_mem_reg[110][31]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                      rv32i_data_mem/data_mem_reg[41][9]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                     rv32i_data_mem/data_mem_reg[41][10]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                     rv32i_data_mem/data_mem_reg[41][14]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                     rv32i_data_mem/data_mem_reg[94][31]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                      rv32i_data_mem/data_mem_reg[94][7]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                     rv32i_data_mem/data_mem_reg[94][15]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                      rv32i_data_mem/data_mem_reg[41][0]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                     rv32i_data_mem/data_mem_reg[41][24]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                      rv32i_data_mem/data_mem_reg[41][8]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                    rv32i_data_mem/data_mem_reg[127][16]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                    rv32i_data_mem/data_mem_reg[107][31]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                     rv32i_data_mem/data_mem_reg[39][31]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                     rv32i_data_mem/data_mem_reg[41][13]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                    rv32i_data_mem/data_mem_reg[120][24]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                     rv32i_data_mem/data_mem_reg[41][12]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                    rv32i_data_mem/data_mem_reg[120][14]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                     rv32i_data_mem/data_mem_reg[120][5]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                     rv32i_data_mem/data_mem_reg[120][8]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                     rv32i_data_mem/data_mem_reg[41][28]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                    rv32i_data_mem/data_mem_reg[120][13]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                    rv32i_data_mem/data_mem_reg[127][30]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                     rv32i_data_mem/data_mem_reg[41][31]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                    rv32i_data_mem/data_mem_reg[120][15]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                     rv32i_data_mem/data_mem_reg[41][15]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                    rv32i_data_mem/data_mem_reg[120][29]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                     rv32i_data_mem/data_mem_reg[41][11]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                      rv32i_data_mem/data_mem_reg[41][7]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                     rv32i_data_mem/data_mem_reg[23][31]/D|
+|              sys_clk_pin |              sys_clk_pin |                                                                     rv32i_data_mem/data_mem_reg[21][31]/D|
++--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+

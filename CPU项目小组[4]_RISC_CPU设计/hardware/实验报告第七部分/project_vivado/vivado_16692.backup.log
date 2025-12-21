@@ -1,0 +1,22 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Dec 18 21:01:41 2025
+# Process ID: 16692
+# Current directory: D:/Vivado_project/cpu_tengf
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7568 D:\Vivado_project\cpu_tengf\cpu_tengf.xpr
+# Log file: D:/Vivado_project/cpu_tengf/vivado.log
+# Journal file: D:/Vivado_project/cpu_tengf\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Vivado_project/cpu_tengf/cpu_tengf.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2019.1/data/ip'.
+CRITICAL WARNING: [Common 17-1649] The Vivado message database 'D:/Vivado_project/cpu_tengf/cpu_tengf.runs/synth_1/vivado.pb' contains 42230 messages. Restoring all messages from this message database will impact Vivado performance, so only WARNING, CRITICAL WARNING, and ERROR messages will be restored. To restore all messages from this file use the tcl command 'set_param messaging.loadPbLimit 42231' and re-open the project.
+update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Dec 18 21:04:54 2025...

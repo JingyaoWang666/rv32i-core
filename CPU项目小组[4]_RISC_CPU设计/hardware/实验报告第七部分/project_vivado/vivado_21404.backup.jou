@@ -1,0 +1,20 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Dec 18 21:33:20 2025
+# Process ID: 21404
+# Current directory: D:/Vivado_project/cpu_tengf
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent26908 D:\Vivado_project\cpu_tengf\cpu_tengf.xpr
+# Log file: D:/Vivado_project/cpu_tengf/vivado.log
+# Journal file: D:/Vivado_project/cpu_tengf\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Vivado_project/cpu_tengf/cpu_tengf.xpr
+update_compile_order -fileset sources_1
+close_project
+open_project D:/Vivado_project/rv32i_cpu/rv32i_cpu.xpr
+update_compile_order -fileset sources_1
+close_project
+open_project D:/Vivado_project/cpu_tengf/cpu_tengf.xpr
+update_compile_order -fileset sources_1

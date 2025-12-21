@@ -1,0 +1,38 @@
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto e2c09350fc0a42d0b74228976269b2b3 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot cpu_tb_behav xil_defaultlib.cpu_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_cpu.v" Line 3. Module rv32i_cpu doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_pc_reg.v" Line 2. Module rv32i_pc_reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_instr_mem.v" Line 11. Module rv32i_instr_mem doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_instr_decoder.v" Line 2. Module rv32i_instr_decoder doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_imm_gen.v" Line 9. Module rv32i_imm_gen doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_control.v" Line 25. Module rv32i_control doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_alu_control.v" Line 5. Module rv32i_alu_control doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_alu_opb_mux.v" Line 3. Module rv32i_alu_opb_mux doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_reg_file.v" Line 2. Module rv32i_reg_file doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_alu.v" Line 4. Module rv32i_alu doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_branch_unit.v" Line 14. Module rv32i_branch_unit doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_rd_data_mux.v" Line 1. Module rv32i_rd_data_mux doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_data_mem.v" Line 3. Module rv32i_data_mem doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.rv32i_pc_reg
+Compiling module xil_defaultlib.rv32i_instr_mem
+Compiling module xil_defaultlib.rv32i_instr_decoder
+Compiling module xil_defaultlib.rv32i_imm_gen
+Compiling module xil_defaultlib.rv32i_control
+Compiling module xil_defaultlib.rv32i_alu_control
+Compiling module xil_defaultlib.rv32i_alu_opb_mux
+Compiling module xil_defaultlib.rv32i_reg_file
+Compiling module xil_defaultlib.rv32i_alu
+Compiling module xil_defaultlib.rv32i_branch_unit
+Compiling module xil_defaultlib.rv32i_rd_data_mux
+Compiling module xil_defaultlib.rv32i_data_mem
+Compiling module xil_defaultlib.rv32i_cpu
+Compiling module xil_defaultlib.cpu_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot cpu_tb_behav

@@ -1,0 +1,362 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Dec 18 21:38:12 2025
+# Process ID: 13772
+# Current directory: D:/Vivado_project/cpu_tengf
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent22076 D:\Vivado_project\cpu_tengf\cpu_tengf.xpr
+# Log file: D:/Vivado_project/cpu_tengf/vivado.log
+# Journal file: D:/Vivado_project/cpu_tengf\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Vivado_project/cpu_tengf/cpu_tengf.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2019.1/data/ip'.
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 8
+[Thu Dec 18 21:38:51 2025] Launched synth_1...
+Run output will be captured here: D:/Vivado_project/cpu_tengf/cpu_tengf.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 8
+[Thu Dec 18 21:41:40 2025] Launched impl_1...
+Run output will be captured here: D:/Vivado_project/cpu_tengf/cpu_tengf.runs/impl_1/runme.log
+synth_design -rtl -name rtl_1
+Command: synth_design -rtl -name rtl_1
+Starting synth_design
+Using part: xc7a35tcpg236-1
+Top: rv32i_cpu
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1391.512 ; gain = 67.684
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'rv32i_cpu' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_cpu.v:3]
+INFO: [Synth 8-6157] synthesizing module 'rv32i_pc_reg' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_pc_reg.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_pc_reg' (1#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_pc_reg.v:2]
+INFO: [Synth 8-6157] synthesizing module 'rv32i_instr_mem' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_instr_mem.v:9]
+INFO: [Synth 8-3876] $readmem data file 'inst_mem_init.mem' is read successfully [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_instr_mem.v:19]
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_instr_mem' (2#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_instr_mem.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32i_instr_decoder' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_instr_decoder.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_instr_decoder' (3#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_instr_decoder.v:2]
+INFO: [Synth 8-6157] synthesizing module 'rv32i_imm_gen' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_imm_gen.v:9]
+INFO: [Synth 8-226] default block is never used [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_imm_gen.v:16]
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_imm_gen' (4#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_imm_gen.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32i_control' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_control.v:22]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_control.v:52]
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_control' (5#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_control.v:22]
+INFO: [Synth 8-6157] synthesizing module 'rv32i_alu_control' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_alu_control.v:5]
+	Parameter ALU_OP_MAIN_S bound to: 2'b00 
+	Parameter ALU_OP_MAIN_RI bound to: 2'b01 
+	Parameter ALU_OP_MAIN_B bound to: 2'b10 
+	Parameter ALU_OP_MAIN_J bound to: 2'b11 
+INFO: [Synth 8-226] default block is never used [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_alu_control.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_alu_control' (6#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_alu_control.v:5]
+INFO: [Synth 8-6157] synthesizing module 'rv32i_alu_opb_mux' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_alu_opb_mux.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_alu_opb_mux' (7#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_alu_opb_mux.v:3]
+INFO: [Synth 8-6157] synthesizing module 'rv32i_reg_file' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_reg_file.v:2]
+	Parameter REG_GCD_A bound to: 5'b11100 
+	Parameter REG_GCD_B bound to: 5'b11101 
+	Parameter REG_GCD_RESULT bound to: 5'b01010 
+	Parameter REG_GCD_START bound to: 5'b11111 
+WARNING: [Synth 8-5788] Register reg_file_reg[28] in module rv32i_reg_file is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_reg_file.v:38]
+WARNING: [Synth 8-5788] Register reg_file_reg[29] in module rv32i_reg_file is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_reg_file.v:38]
+WARNING: [Synth 8-5788] Register reg_file_reg[31] in module rv32i_reg_file is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_reg_file.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_reg_file' (8#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_reg_file.v:2]
+INFO: [Synth 8-6157] synthesizing module 'rv32i_alu' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_alu.v:4]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_alu.v:18]
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_alu' (9#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_alu.v:4]
+INFO: [Synth 8-6157] synthesizing module 'rv32i_branch_unit' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_branch_unit.v:14]
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_branch_unit' (10#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_branch_unit.v:14]
+INFO: [Synth 8-6157] synthesizing module 'rv32i_rd_data_mux' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_rd_data_mux.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_rd_data_mux' (11#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_rd_data_mux.v:1]
+INFO: [Synth 8-6157] synthesizing module 'rv32i_data_mem' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_data_mem.v:3]
+WARNING: [Synth 8-5788] Register data_mem_reg in module rv32i_data_mem is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code 
+WARNING: [Synth 8-4767] Trying to implement RAM 'data_mem_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
+Reason is one or more of the following :
+	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported. 
+RAM "data_mem_reg" dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_data_mem' (12#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_data_mem.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_cpu' (13#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_cpu.v:3]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[31]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[30]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[29]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[28]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[27]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[26]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[25]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[24]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[23]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[22]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[21]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[20]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[19]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[18]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[17]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[16]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[15]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[14]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[13]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[12]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[11]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[10]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[9]
+WARNING: [Synth 8-3331] design rv32i_imm_gen has unconnected port instr[6]
+WARNING: [Synth 8-3331] design rv32i_imm_gen has unconnected port instr[5]
+WARNING: [Synth 8-3331] design rv32i_imm_gen has unconnected port instr[4]
+WARNING: [Synth 8-3331] design rv32i_imm_gen has unconnected port instr[3]
+WARNING: [Synth 8-3331] design rv32i_imm_gen has unconnected port instr[2]
+WARNING: [Synth 8-3331] design rv32i_imm_gen has unconnected port instr[1]
+WARNING: [Synth 8-3331] design rv32i_imm_gen has unconnected port instr[0]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[31]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[30]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[29]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[28]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[27]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[26]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[25]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[24]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[23]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[22]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[21]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[20]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[19]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[18]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[17]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[16]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[15]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[14]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[13]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[12]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[1]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[0]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1402.078 ; gain = 78.250
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1423.602 ; gain = 99.773
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1423.602 ; gain = 99.773
+---------------------------------------------------------------------------------
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/constrs_1/new/cpu_constr.xdc]
+Finished Parsing XDC File [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/constrs_1/new/cpu_constr.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1560.480 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:12 ; elapsed = 00:00:06 . Memory (MB): peak = 1606.254 ; gain = 282.426
+35 Infos, 57 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:10 . Memory (MB): peak = 1606.254 ; gain = 331.664
+close_design
+open_run impl_1
+INFO: [Netlist 29-17] Analyzing 591 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2019.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.510 . Memory (MB): peak = 2080.000 ; gain = 0.000
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.510 . Memory (MB): peak = 2080.000 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2080.000 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 2168.859 ; gain = 552.988
+CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+synth_design -rtl -name rtl_1
+Command: synth_design -rtl -name rtl_1
+Starting synth_design
+Using part: xc7a35tcpg236-1
+Top: rv32i_cpu
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 3401.484 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'rv32i_cpu' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_cpu.v:3]
+INFO: [Synth 8-6157] synthesizing module 'rv32i_pc_reg' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_pc_reg.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_pc_reg' (1#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_pc_reg.v:2]
+INFO: [Synth 8-6157] synthesizing module 'rv32i_instr_mem' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_instr_mem.v:9]
+INFO: [Synth 8-3876] $readmem data file 'inst_mem_init.mem' is read successfully [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_instr_mem.v:19]
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_instr_mem' (2#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_instr_mem.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32i_instr_decoder' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_instr_decoder.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_instr_decoder' (3#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_instr_decoder.v:2]
+INFO: [Synth 8-6157] synthesizing module 'rv32i_imm_gen' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_imm_gen.v:9]
+INFO: [Synth 8-226] default block is never used [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_imm_gen.v:16]
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_imm_gen' (4#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_imm_gen.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32i_control' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_control.v:22]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_control.v:52]
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_control' (5#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_control.v:22]
+INFO: [Synth 8-6157] synthesizing module 'rv32i_alu_control' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_alu_control.v:5]
+	Parameter ALU_OP_MAIN_S bound to: 2'b00 
+	Parameter ALU_OP_MAIN_RI bound to: 2'b01 
+	Parameter ALU_OP_MAIN_B bound to: 2'b10 
+	Parameter ALU_OP_MAIN_J bound to: 2'b11 
+INFO: [Synth 8-226] default block is never used [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_alu_control.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_alu_control' (6#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_alu_control.v:5]
+INFO: [Synth 8-6157] synthesizing module 'rv32i_alu_opb_mux' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_alu_opb_mux.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_alu_opb_mux' (7#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_alu_opb_mux.v:3]
+INFO: [Synth 8-6157] synthesizing module 'rv32i_reg_file' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_reg_file.v:2]
+	Parameter REG_GCD_A bound to: 5'b11100 
+	Parameter REG_GCD_B bound to: 5'b11101 
+	Parameter REG_GCD_RESULT bound to: 5'b01010 
+	Parameter REG_GCD_START bound to: 5'b11111 
+WARNING: [Synth 8-5788] Register reg_file_reg[28] in module rv32i_reg_file is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_reg_file.v:38]
+WARNING: [Synth 8-5788] Register reg_file_reg[29] in module rv32i_reg_file is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_reg_file.v:38]
+WARNING: [Synth 8-5788] Register reg_file_reg[31] in module rv32i_reg_file is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_reg_file.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_reg_file' (8#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_reg_file.v:2]
+INFO: [Synth 8-6157] synthesizing module 'rv32i_alu' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_alu.v:4]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_alu.v:18]
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_alu' (9#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_alu.v:4]
+INFO: [Synth 8-6157] synthesizing module 'rv32i_branch_unit' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_branch_unit.v:14]
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_branch_unit' (10#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_branch_unit.v:14]
+INFO: [Synth 8-6157] synthesizing module 'rv32i_rd_data_mux' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_rd_data_mux.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_rd_data_mux' (11#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_rd_data_mux.v:1]
+INFO: [Synth 8-6157] synthesizing module 'rv32i_data_mem' [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_data_mem.v:3]
+WARNING: [Synth 8-5788] Register data_mem_reg in module rv32i_data_mem is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code 
+WARNING: [Synth 8-4767] Trying to implement RAM 'data_mem_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
+Reason is one or more of the following :
+	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported. 
+RAM "data_mem_reg" dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_data_mem' (12#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_data_mem.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'rv32i_cpu' (13#1) [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/imports/src/core/rv32i_cpu.v:3]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[31]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[30]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[29]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[28]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[27]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[26]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[25]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[24]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[23]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[22]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[21]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[20]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[19]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[18]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[17]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[16]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[15]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[14]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[13]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[12]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[11]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[10]
+WARNING: [Synth 8-3331] design rv32i_data_mem has unconnected port addr[9]
+WARNING: [Synth 8-3331] design rv32i_imm_gen has unconnected port instr[6]
+WARNING: [Synth 8-3331] design rv32i_imm_gen has unconnected port instr[5]
+WARNING: [Synth 8-3331] design rv32i_imm_gen has unconnected port instr[4]
+WARNING: [Synth 8-3331] design rv32i_imm_gen has unconnected port instr[3]
+WARNING: [Synth 8-3331] design rv32i_imm_gen has unconnected port instr[2]
+WARNING: [Synth 8-3331] design rv32i_imm_gen has unconnected port instr[1]
+WARNING: [Synth 8-3331] design rv32i_imm_gen has unconnected port instr[0]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[31]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[30]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[29]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[28]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[27]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[26]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[25]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[24]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[23]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[22]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[21]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[20]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[19]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[18]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[17]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[16]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[15]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[14]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[13]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[12]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[1]
+WARNING: [Synth 8-3331] design rv32i_instr_mem has unconnected port addr[0]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 3401.484 ; gain = 0.000
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 3401.484 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 3401.484 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/constrs_1/new/cpu_constr.xdc]
+Finished Parsing XDC File [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/constrs_1/new/cpu_constr.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 3401.484 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 3401.484 ; gain = 0.000
+34 Infos, 57 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 3401.484 ; gain = 0.000
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35tcpg236-1
+INFO: [Netlist 29-17] Analyzing 591 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2019.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/constrs_1/new/cpu_constr.xdc]
+Finished Parsing XDC File [D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/constrs_1/new/cpu_constr.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 3401.484 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+current_design impl_1
+file mkdir D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/new
+close [ open D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/new/inst_mem_init_tengf.mem w ]
+add_files D:/Vivado_project/cpu_tengf/cpu_tengf.srcs/sources_1/new/inst_mem_init_tengf.mem
+reset_run synth_1
+launch_runs impl_1 -jobs 8
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Thu Dec 18 22:48:54 2025] Launched synth_1...
+Run output will be captured here: D:/Vivado_project/cpu_tengf/cpu_tengf.runs/synth_1/runme.log
+[Thu Dec 18 22:48:54 2025] Launched impl_1...
+Run output will be captured here: D:/Vivado_project/cpu_tengf/cpu_tengf.runs/impl_1/runme.log
+CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Dec 18 23:05:51 2025...
