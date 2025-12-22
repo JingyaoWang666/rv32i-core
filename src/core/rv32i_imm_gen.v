@@ -26,7 +26,7 @@ module rv32i_imm_gen (
             2'b11: begin // J-type (e.g., JAL, JALR)
                 imm_out = {{12{instr[31]}},instr[19:12],instr[20],instr[30:21], 1'b0};
             end
-            // U: imm_out = {instr[31:12], 12'b0};  //if support U-type inst,imm_type should be 3 bits
+            // U: imm_out = {instr[31:12], 12'b0};  
             default: begin
                 imm_out = 32'b0; // default case to avoid latches
             end

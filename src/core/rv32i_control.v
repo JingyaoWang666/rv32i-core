@@ -52,7 +52,7 @@ always @(*) begin
     imm_type = 0;
     alu_op_main = 0;
 
-    case(opcode)    // U-type instructions are not supported temporarily
+    case(opcode)    
         `OPCODE_OP_R:begin
             alu_src = 0;
             mem_read = 0;
