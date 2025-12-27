@@ -1,3 +1,4 @@
+// a simple clock generator
 module clock_divider(
     input clk_in,
     input rst_n,

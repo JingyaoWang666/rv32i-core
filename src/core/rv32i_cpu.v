@@ -149,6 +149,7 @@ rv32i_branch_unit rv32i_branch_unit(
        .pc_next(next_pc),
        .pc_taken(pc_taken)
 );
+// commmented out for lower space usage and power consumption
 /*
 rv32i_rd_data_mux rv32i_rd_data_mux(
     .mem_to_reg(mem_to_reg),

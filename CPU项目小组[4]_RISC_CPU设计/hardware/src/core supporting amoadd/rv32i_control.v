@@ -16,7 +16,7 @@ alu_op_main: ALU operation type signal, passed to rv32i_alu_control for further 
 
 We define the imm_type encoding as:
 2'b00: I-type
-2'b01: S-type
+2'b01: S-type 
 2'b10: B-type
 2'b11: J-type       Note that we temporarily don't support U-type instruction.
 */

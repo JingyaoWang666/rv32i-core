@@ -1,7 +1,7 @@
 /*ALU Control: Generates the actual alu_op (internal encoding, see rv32i_defs.vh)
 based on alu_op_main (major categories from main controller: arithmetic/logic/branch, etc.) and funct3/funct7.*/
 `include "rv32i_defs.vh"
-
+ 
 module rv32i_alu_control (
     input  wire [1:0]  alu_op_main,   // from main control
     input  wire [2:0]  funct3,        // instr[14:12]

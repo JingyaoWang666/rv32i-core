@@ -1,7 +1,8 @@
-// Main controller (based on Opcode): rv32i_control.v
-// This control module only outputs general control signals based on the opcode.
-// Specific operations based on funct3, etc., are handled by modules like alu_control and imm_gen.
-// In general, it supports: I-type (including JALR/LOAD/OP_IMM), B-type, J-type, S-type, R-type instructions.
+/* Main controller (based on Opcode): rv32i_control.v
+   This control module only outputs general control signals based on the opcode.
+   Specific operations based on funct3, etc., are handled by modules like alu_control and imm_gen.
+   In general, it supports: I-type (including JALR/LOAD/OP_IMM), B-type, J-type, S-type, R-type instructions.
+*/
 
 /* Outputs various control signals:
 
@@ -33,7 +34,7 @@ module rv32i_control (
     output reg        branch,      // for conditional branches
     output reg        jump,        // for JAL / JALR
     output reg        is_jalr,     //distinguish JAL from JALR
-    output reg [1:0]  imm_type,    // e.g. 00:I, 01:S, 10:B, 11:J  (temporarily not support other types of instr)
+    output reg [1:0]  imm_type,    //00:I, 01:S, 10:B, 11:J 
     output reg [1:0]  alu_op_main  // high-level ALUOp to alu_control. See the rules in alu_control.v localparam.
 );
 

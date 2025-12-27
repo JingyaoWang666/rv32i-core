@@ -10,3 +10,4 @@ module rv32i_alu_opb_mux (
     assign op_b = (alu_src == 1'b1) ? imm : rs2_data;
 
 endmodule
+ 

@@ -14,8 +14,8 @@ gcd_calc:
     mv x30, a0       # write result to x30 (update gcd_result output)
     j wait_start     # wait for next start
 
-# GCD function implemented purely in RV32I (no rem instruction)
-# Inputs: a0 = dividend, a1 = divisor; Output: a0 = result (GCD)
+# GCD function implemented purely in RV32I not using rem instruction
+# Inputs: a0 = dividend, a1 = divisor; Output: a0 = result
 gcd_func:
     beq a1, x0, gcd_end  # if divisor is 0, finish (RV32I)
     # Subroutine: compute a0 % a1 using repeated subtraction
